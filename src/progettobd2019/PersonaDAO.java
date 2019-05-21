@@ -12,7 +12,7 @@ import java.util.*;
  *
  * @author Gerardo
  */
-public class PersonaDAOimplements implements DAO_Interface {
+public class PersonaDAO implements DAO<Persona> {
 
     Connection con = null;
     Statement st = null;
@@ -24,7 +24,8 @@ public class PersonaDAOimplements implements DAO_Interface {
     String url = "jdbc:postgresql://hostname//database";
     ArrayList<Persona> per = new ArrayList<>();
 
-    public void insert(Persona p) throws SQLException{
+    @Override
+    public void insert(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -53,6 +54,7 @@ public class PersonaDAOimplements implements DAO_Interface {
         }
     }
 
+    @Override
     public void update(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
@@ -83,6 +85,7 @@ public class PersonaDAOimplements implements DAO_Interface {
         }
     }
 
+    @Override
     public void delete(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
@@ -101,7 +104,8 @@ public class PersonaDAOimplements implements DAO_Interface {
         }
     }
 
-    public ArrayList<Persona> select(Persona p) {
+    @Override
+    public List<Persona> getAll() {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -122,29 +126,5 @@ public class PersonaDAOimplements implements DAO_Interface {
             System.out.println(e.getMessage());
             return null;
         }
-    }
-
-    public void insert() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void update() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void delete() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArrayList select() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void insert(Object e) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
