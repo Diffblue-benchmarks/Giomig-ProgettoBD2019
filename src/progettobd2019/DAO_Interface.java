@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public interface DAO_Interface<T> {
 
-    public void insert() throws SQLException;
+    public void insert(T e) throws SQLException;
 
     public void update() throws SQLException;
 

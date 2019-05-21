@@ -25,7 +25,7 @@ public class PersonaDAOimplements implements DAO_Interface {
     ArrayList<Persona> per = new ArrayList<>();
 
     @Override
-    public void insert(Persona p) {
+    public void insert(Persona p) throws SQLException{
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -126,5 +126,30 @@ public class PersonaDAOimplements implements DAO_Interface {
             System.out.println(e.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public void insert() throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update() throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete() throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList select() throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void insert(Object e) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
