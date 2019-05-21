@@ -6,7 +6,6 @@
 package progettobd2019;
 
 import java.sql.*;
-import java.util.Objects;
 
 /**
  *
@@ -14,49 +13,63 @@ import java.util.Objects;
  */
 public class Persona {
 
-    String nome;
+    int id;
     String nomeAzienda;
-    String Cognome;
-    String Sesso;
+    String nome;
+    String cognome;
+    String sesso;
+    String titolo;
+    String foto;
+    boolean familiare;
     String sitoWeb;
     String telefono;
-    String titolo;
     String ruolo;
-    int id;
-    String foto;
     Date dataInizio;
-    boolean familiare;
 
-    public Persona(String nome, String nomeAzienda, String Cognome, String Sesso, String sitoWeb, String telefono, String ruolo,
-            int id, String foto, boolean familiare, Date dataInizio, String titolo) {
-        this.nome = nome;
+    public Persona(String nomeAzienda, String nome, String cognome, String sesso, String titolo, String foto, boolean familiare, String sitoWeb, String telefono, String ruolo, Date dataInizio) {
         this.nomeAzienda = nomeAzienda;
-        this.Cognome = Cognome;
-        this.Sesso = Sesso;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.sesso = sesso;
+        this.titolo = titolo;
+        this.foto = foto;
+        this.familiare = familiare;
         this.sitoWeb = sitoWeb;
         this.telefono = telefono;
         this.ruolo = ruolo;
-        this.id = id;
-        this.titolo = titolo;
         this.dataInizio = dataInizio;
-        this.foto = foto;
-        this.familiare = familiare;
     }
 
-    public String getNome() {
-        return nome;
+    public int getId() {
+        return id;
     }
 
     public String getNomeAzienda() {
         return nomeAzienda;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
     public String getCognome() {
-        return Cognome;
+        return cognome;
     }
 
     public String getSesso() {
-        return Sesso;
+        return sesso;
+    }
+
+    public String getTitolo() {
+        return titolo;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public boolean getFamiliare() {
+        return familiare;
     }
 
     public String getSitoWeb() {
@@ -71,40 +84,40 @@ public class Persona {
         return ruolo;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getTitolo() {
-        return titolo;
-    }
-
     public Date getDataInizio() {
         return dataInizio;
     }
 
-    public String getFoto() {
-        return foto;
-    }
-
-    public boolean getFamiliare() {
-        return familiare;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setNomeAzienda(String nomeAzienda) {
         this.nomeAzienda = nomeAzienda;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public void setCognome(String Cognome) {
-        this.Cognome = Cognome;
+        this.cognome = Cognome;
     }
 
     public void setSesso(String Sesso) {
-        this.Sesso = Sesso;
+        this.sesso = Sesso;
+    }
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public void setFamiliare(boolean familiare) {
+        this.familiare = familiare;
     }
 
     public void setSitoWeb(String sitoWeb) {
@@ -119,56 +132,14 @@ public class Persona {
         this.ruolo = ruolo;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setTitolo(String titolo) {
-        this.titolo = titolo;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
     public void setDataInizio(Date dataInizio) {
         this.dataInizio = dataInizio;
     }
 
     @Override
-    public int hashCode() {
-        int hash = 5;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Persona other = (Persona) obj;
-        if (!Objects.equals(this.nomeAzienda, other.nomeAzienda)) {
-            return false;
-        }
-        if (!Objects.equals(this.ruolo, other.ruolo)) {
-            return false;
-        }
-        if (!Objects.equals(this.dataInizio, other.dataInizio)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public String toString() {
         return "Persona{" + "nome=" + nome + ", nomeAzienda=" + nomeAzienda + ", Cognome="
-                + Cognome + ", Sesso=" + Sesso + ", sitoWeb=" + sitoWeb + ", telefono=" + telefono
+                + cognome + ", Sesso=" + sesso + ", sitoWeb=" + sitoWeb + ", telefono=" + telefono
                 + ", titolo=" + titolo + ", ruolo=" + ruolo + ", id=" + id + ", foto=" + foto + ", dataInizio="
                 + dataInizio + '}';
     }
