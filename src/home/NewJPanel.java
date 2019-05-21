@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Home;
+package home;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -43,7 +43,7 @@ public class NewJPanel extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(470, 73));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/images/male.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/male.png"))); // NOI18N
 
         jLabel2.setText("jLabel2");
 

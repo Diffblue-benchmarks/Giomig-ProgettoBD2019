@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Home;
+package home;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -76,7 +76,7 @@ public class UI extends javax.swing.JFrame {
 
         userIco.setBackground(new java.awt.Color(255, 255, 255));
         userIco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        userIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/images/icons8-contacts-32.png"))); // NOI18N
+        userIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-contacts-32.png"))); // NOI18N
 
         userSide.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -119,7 +119,7 @@ public class UI extends javax.swing.JFrame {
 
         addIco.setBackground(new java.awt.Color(1, 68, 133));
         addIco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        addIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/images/icons8-plus-32.png"))); // NOI18N
+        addIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-plus-32.png"))); // NOI18N
 
         addSide.setBackground(new java.awt.Color(255, 255, 255));
         addSide.setOpaque(false);
@@ -158,8 +158,8 @@ public class UI extends javax.swing.JFrame {
         rightSidePanel.setLayout(rightSidePanelLayout);
         rightSidePanelLayout.setHorizontalGroup(
             rightSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(userButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, Short.MAX_VALUE)
-            .addComponent(addButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(userButton, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(addButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
         rightSidePanelLayout.setVerticalGroup(
             rightSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +183,7 @@ public class UI extends javax.swing.JFrame {
         searchBox.setBorder(null);
         topPanel.add(searchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 186, 27));
 
-        searchIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/images/icons8-search-20.png"))); // NOI18N
+        searchIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-search-20.png"))); // NOI18N
         topPanel.add(searchIco, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 10, -1, -1));
 
         getContentPane().add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, -1));
@@ -192,11 +192,11 @@ public class UI extends javax.swing.JFrame {
 
         toolPanel.setBackground(new java.awt.Color(175, 175, 175));
 
-        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/images/icons8-edit-25.png"))); // NOI18N
+        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-edit-25.png"))); // NOI18N
         editLabel.setText("Edit");
         toolPanel.add(editLabel);
 
-        deleteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/images/icons8-trash-can-25.png"))); // NOI18N
+        deleteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-trash-can-25.png"))); // NOI18N
         deleteLabel.setText("Delete");
         toolPanel.add(deleteLabel);
 
