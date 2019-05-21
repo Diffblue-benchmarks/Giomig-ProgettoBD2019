@@ -26,7 +26,8 @@ public class Persona {
     String ruolo;
     Date dataInizio;
 
-    public Persona(String nomeAzienda, String nome, String cognome, String sesso, String titolo, String foto, boolean familiare, String sitoWeb, String telefono, String ruolo, Date dataInizio) {
+    public Persona(int id, String nomeAzienda, String nome, String cognome, String sesso, String titolo, String foto, boolean familiare, String sitoWeb, String telefono, String ruolo, Date dataInizio) {
+        this.id = id;
         this.nomeAzienda = nomeAzienda;
         this.nome = nome;
         this.cognome = cognome;

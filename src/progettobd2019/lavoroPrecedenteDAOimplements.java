@@ -73,7 +73,7 @@ public class lavoroPrecedenteDAOimplements {
     }
 
     @Override
-    public void deleteLavoroPrecedente(Persona p) {
+    public void deleteLavoroPrecedente(lavoroPrecedente lp) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -81,9 +81,9 @@ public class lavoroPrecedenteDAOimplements {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "DELETE FROM persona WHERE id=? ";
+            String query = "DELETE FROM lavoroPrecedente WHERE id=? ";
             PreparedStatement st = con.prepareStatement(query);
-            st.setInt(1, p.getId());
+            st.setInt(1, lp.getIdPersona());
             st.executeQuery(query);
             con.close();
         } catch (SQLException e) {
@@ -92,7 +92,7 @@ public class lavoroPrecedenteDAOimplements {
     }
 
     @Override
-    public ArrayList<Persona> selectLavoroPrecedente(Persona p) {
+    public ArrayList<lavoroPrecedente> selectLavoroPrecedente(lavoroPrecedente lp) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -100,12 +100,11 @@ public class lavoroPrecedenteDAOimplements {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "SELECT (nomeAzienda, nome, cognome, sesso, titolo, foto, familiare, "
-                    + " sitoWeb, telefono, ruolo,dataInizio) FROM persona";
+            String query = "SELECT (idPersona,nomeAzienda,dataInizio,dataFine,ruolo) FROM lavoroPrecedente";
             PreparedStatement st = con.prepareStatement(query);
             ResultSet res = st.executeQuery(query);
             while (res.next()) {
-                per.add(new Persona(res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getBoolean(7), res.getString(8), res.getString(9), res.getString(10), res.getDate(11)));
+                per.add(new lavoroPrecedente(res.getInt(1), res.getString(2), res.getDate(3), res.getDate(4), res.getString(5)));
             }
             con.close();
             return per;
