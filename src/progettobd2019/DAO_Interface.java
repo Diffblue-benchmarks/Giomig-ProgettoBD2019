@@ -16,13 +16,13 @@ public interface DAO_Interface {
 
     public interface DAO {
 
-        public void insert(DAO T) throws SQLException;
+        public void insert() throws SQLException;
 
-        public void update(DAO T) throws SQLException;
+        public void update() throws SQLException;
 
-        public void delete(DAO T) throws SQLException;
+        public void delete() throws SQLException;
 
-        public ArrayList<T> selectPersona(DAO T) throws SQLException;
+        public ArrayList<> select() throws SQLException;
     }
 
 }
