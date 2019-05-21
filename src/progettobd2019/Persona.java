@@ -20,10 +20,12 @@ public class Persona {
     String titolo;
     String ruolo;
     int id;
+    String foto;
     LocalDate dataInizio;
     
     
-    public Persona(String nome, String nomeAzienda, String Cognome, String Sesso, String sitoWeb, String telefono, String ruolo, int id) {
+    public Persona(String nome, String nomeAzienda, String Cognome, String Sesso, String sitoWeb, String telefono, String ruolo,
+            int id, String foto) {
         this.nome = nome;
         this.nomeAzienda = nomeAzienda;
         this.Cognome = Cognome;
@@ -34,6 +36,7 @@ public class Persona {
         this.id = id;
         this.titolo=titolo;
         this.dataInizio=dataInizio;
+        this.foto=foto;
     }
 
     public String getNome() {
@@ -75,6 +78,10 @@ public class Persona {
     public LocalDate getDataInizio() {
         return dataInizio;
     }
+
+    public String getFoto() {
+        return foto;
+    }
     
     
 
@@ -112,6 +119,10 @@ public class Persona {
 
     public void setTitolo(String titolo) {
         this.titolo = titolo;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public void setDataInizio(LocalDate dataInizio) {
@@ -153,10 +164,13 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "nome=" + nome + ", nomeAzienda=" + nomeAzienda 
-                + ", Cognome=" + Cognome + ", Sesso=" + Sesso + ", sitoWeb=" + sitoWeb 
-                + ", telefono=" + telefono + ", titolo=" + titolo + ", ruolo=" 
-                + ruolo + ", id=" + id + '}';
+        return "Persona{" + "nome=" + nome + ", nomeAzienda=" + nomeAzienda + ", Cognome=" 
+                + Cognome + ", Sesso=" + Sesso + ", sitoWeb=" + sitoWeb + ", telefono=" + telefono 
+                + ", titolo=" + titolo + ", ruolo=" + ruolo + ", id=" + id + ", foto=" + foto + ", dataInizio=" 
+                + dataInizio + '}';
     }
+   
+    }
+
     
-}
+
