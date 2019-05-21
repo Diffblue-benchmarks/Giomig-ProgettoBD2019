@@ -12,17 +12,13 @@ import java.util.ArrayList;
  *
  * @author vince
  */
-public interface DAO_Interface {
+public interface DAO_Interface<T> {
 
-    public interface DAO {
+    public void insert() throws SQLException;
 
-        public void insert() throws SQLException;
+    public void update() throws SQLException;
 
-        public void update() throws SQLException;
+    public void delete() throws SQLException;
 
-        public void delete() throws SQLException;
-
-        public ArrayList<> select() throws SQLException;
-    }
-
+    public ArrayList<T> select() throws SQLException;
 }
