@@ -25,7 +25,7 @@ public class PersonaDAOimplements implements DAO_Interface {
     ArrayList<Persona> per = new ArrayList<>();
 
     @Override
-    public void insertPersona(Persona p) {
+    public void insert(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -55,7 +55,7 @@ public class PersonaDAOimplements implements DAO_Interface {
     }
 
     @Override
-    public void updatePersona(Persona p) {
+    public void update(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -86,7 +86,7 @@ public class PersonaDAOimplements implements DAO_Interface {
     }
 
     @Override
-    public void deletePersona(Persona p) {
+    public void delete(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -105,7 +105,7 @@ public class PersonaDAOimplements implements DAO_Interface {
     }
 
     @Override
-    public ArrayList<Persona> selectPersona(Persona p) {
+    public ArrayList<Persona> select(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {

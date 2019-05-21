@@ -25,7 +25,7 @@ public class lavoroPrecedenteDAOimplements implements DAO_Interface {
     ArrayList<lavoroPrecedente> per = new ArrayList<>();
 
     @Override
-    public void insertLavoroPrecedente(lavoroPrecedente lp) {
+    public void insert(lavoroPrecedente lp) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -49,7 +49,7 @@ public class lavoroPrecedenteDAOimplements implements DAO_Interface {
     }
 
     @Override
-    public void updateLavoroPrecedente(lavoroPrecedente lp) {
+    public void update(lavoroPrecedente lp) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -73,7 +73,7 @@ public class lavoroPrecedenteDAOimplements implements DAO_Interface {
     }
 
     @Override
-    public void deleteLavoroPrecedente(lavoroPrecedente lp) {
+    public void delete(lavoroPrecedente lp) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -92,7 +92,7 @@ public class lavoroPrecedenteDAOimplements implements DAO_Interface {
     }
 
     @Override
-    public ArrayList<lavoroPrecedente> selectLavoroPrecedente(lavoroPrecedente lp) {
+    public ArrayList<lavoroPrecedente> select(lavoroPrecedente lp) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
