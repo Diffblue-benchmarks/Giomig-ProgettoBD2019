@@ -13,22 +13,22 @@ import java.sql.Date;
  */
 public class lavoroPrecedente {
 
-    int id;
+    int idPersona;
     String nomeAzienda;
     Date dataInizio;
     Date dataFine;
     String ruolo;
 
-    public lavoroPrecedente(int id, String nomeAzienda, Date dataInizio, Date dataFine, String ruolo) {
-        this.id = id;
+    public lavoroPrecedente(int idPersona, String nomeAzienda, Date dataInizio, Date dataFine, String ruolo) {
+        this.idPersona = idPersona;
         this.nomeAzienda = nomeAzienda;
         this.dataInizio = dataInizio;
         this.dataFine = dataFine;
         this.ruolo = ruolo;
     }
 
-    public int getId() {
-        return id;
+    public int getIdPersona() {
+        return idPersona;
     }
 
     public String getNomeAzienda() {
@@ -47,8 +47,8 @@ public class lavoroPrecedente {
         return ruolo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
     }
 
     public void setNomeAzienda(String nomeAzienda) {
@@ -69,7 +69,7 @@ public class lavoroPrecedente {
 
     @Override
     public String toString() {
-        return "lavoroPrecedente{" + "nomeAzienda=" + nomeAzienda + ", id=" + id + ", ruolo=" + ruolo + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + '}';
+        return "lavoroPrecedente{" + "nomeAzienda=" + nomeAzienda + ", id=" + idPersona + ", ruolo=" + ruolo + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + '}';
     }
 
 }
