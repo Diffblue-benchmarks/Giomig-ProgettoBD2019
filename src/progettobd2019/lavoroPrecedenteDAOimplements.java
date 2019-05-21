@@ -12,7 +12,7 @@ import java.util.*;
  *
  * @author vince
  */
-public class lavoroPrecedenteDAOimplements {
+public class lavoroPrecedenteDAOimplements implements DAO_Interface {
 
     Connection con = null;
     Statement st = null;

@@ -12,7 +12,7 @@ import java.util.*;
  *
  * @author Gerardo
  */
-public class PersonaDAOimplements implements PersonaDAO {
+public class PersonaDAOimplements implements DAO_Interface {
 
     Connection con = null;
     Statement st = null;
