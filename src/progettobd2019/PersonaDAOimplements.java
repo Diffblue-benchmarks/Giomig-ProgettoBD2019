@@ -28,44 +28,87 @@ public class PersonaDAOimplements implements PersonaDAO {
 
     @Override
     public void insertPersona(Persona p) {
-
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
-
         try {
             con = DriverManager.getConnection(url, user, psw);
-
-            Statement st = con.createStatement();
             String query = "INSERT INTO persona (nomeAzienda, nome, cognome, sesso, titolo, foto, familiare, "
-                    + " sitoWeb, telefono, ruolo,dataInizio) VALUES('" 
-                    + p.getNomeAzienda() + "','" + p.getNome() + "','" + p.getCognome() + "','" 
-                    + p.getSesso() + "','" + p.getTitolo() + "','" + p.getFoto() + "','" 
-                    + p.getSitoWeb() + "','" 
-                    + p.getTelefono() + "','" 
-                    + p.getRuolo() + "','" + p.getDataInizio() + "');";
+                    + " sitoWeb, telefono, ruolo,dataInizio) VALUES(?,?,?,?,?,?,?,?,?,?)" ;
+            PreparedStatement st = con.prepareStatement(query);
+            st.setString(1,p.getNomeAzienda());
+            st.setString(2,p.getNome());
+            st.setString(3,p.getCognome());
+            st.setString(4,p.getSesso());
+            st.setString(5,p.getTitolo());
+            st.setString(6,p.getFoto());
+            st.setBoolean(7,p.getFamiliare());
+            st.setString(8,p.getSitoWeb());
+            st.setString(9,p.getTelefono());
+            st.setString(10,p.getRuolo());
+            st.setDate(11, p.getDataInizio());
             st.executeQuery(query);
             con.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     @Override
     public void updatePersona(Persona p) {
-
+            try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
+        try {
+            con = DriverManager.getConnection(url, user, psw);
+            String query = "INSERT INTO persona (nomeAzienda, nome, cognome, sesso, titolo, foto, familiare, "
+                    + " sitoWeb, telefono, ruolo,dataInizio) VALUES(?,?,?,?,?,?,?,?,?,?)" ;
+            PreparedStatement st = con.prepareStatement(query);
+            st.executeQuery(query);
+            con.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
     public void deletePersona(Persona p) {
+    try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
+        try {
+            con = DriverManager.getConnection(url, user, psw);
 
+            Statement st = con.createStatement();
+            String query = "DELETE ";
+            st.executeQuery(query);
+            con.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
     public ArrayList<Persona> selectPersona(Persona p) {
+    try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
+        try {
+            con = DriverManager.getConnection(url, user, psw);
 
-    }
+            Statement st = con.createStatement();
+            String query = "SELECT * FROM persona";
+            st.executeQuery(query);
+            con.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
 }
