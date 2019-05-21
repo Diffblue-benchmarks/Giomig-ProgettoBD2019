@@ -24,7 +24,6 @@ public class PersonaDAOimplements implements DAO_Interface {
     String url = "jdbc:postgresql://hostname//database";
     ArrayList<Persona> per = new ArrayList<>();
 
-    @Override
     public void insert(Persona p) throws SQLException{
         try {
             Class.forName("org.postgresql.Driver");
@@ -54,7 +53,6 @@ public class PersonaDAOimplements implements DAO_Interface {
         }
     }
 
-    @Override
     public void update(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
@@ -85,7 +83,6 @@ public class PersonaDAOimplements implements DAO_Interface {
         }
     }
 
-    @Override
     public void delete(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
@@ -104,7 +101,6 @@ public class PersonaDAOimplements implements DAO_Interface {
         }
     }
 
-    @Override
     public ArrayList<Persona> select(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
@@ -128,7 +124,6 @@ public class PersonaDAOimplements implements DAO_Interface {
         }
     }
 
-    @Override
     public void insert() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
