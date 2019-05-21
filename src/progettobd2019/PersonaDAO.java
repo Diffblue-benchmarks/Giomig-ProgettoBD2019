@@ -4,16 +4,21 @@
  * and open the template in the editor.
  */
 package progettobd2019;
+
 import java.sql.SQLException;
 import java.util.*;
+
 /**
  *
  * @author Gerardo
  */
-public interface PersonaDAO {
-    
-    public void insertPersona(Persona p)throws SQLException;
-    public void updatePersona(Persona p)throws SQLException;
-    public void deletePersona(Persona p)throws SQLException;
-    public ArrayList<Persona> selectPersona(Persona p)throws SQLException;
+public interface DAO {
+
+    public void insert(DAO T) throws SQLException;
+
+    public void update(DAO T) throws SQLException;
+
+    public void delete(DAO T) throws SQLException;
+
+    public ArrayList<T> selectPersona(DAO T) throws SQLException;
 }

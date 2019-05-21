@@ -211,8 +211,7 @@ public class RIgui extends javax.swing.JFrame {
 
     private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextActionPerformed
         // TODO add your handling code here:
-        
-        
+
     }//GEN-LAST:event_searchTextActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed

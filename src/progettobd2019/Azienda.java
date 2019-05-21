@@ -12,6 +12,7 @@ import java.util.logging.Logger;
  * @author Gerardo
  */
 public class Azienda {
+
     String nome;
     String nomeSettore;
 
@@ -35,12 +36,10 @@ public class Azienda {
     public void setNomeSettore(String nomeSettore) {
         this.nomeSettore = nomeSettore;
     }
-    
 
     @Override
     public String toString() {
         return "Azienda{" + "nome=" + nome + ", nomeSettore=" + nomeSettore + '}';
     }
-   
-    
+
 }

@@ -10,6 +10,7 @@ package progettobd2019;
  * @author Gerardo
  */
 public class Presentazione {
+
     int idPresentato;
     int idPresentatore;
     int idEvento;
@@ -43,12 +44,10 @@ public class Presentazione {
     public void setIdEvento(int idEvento) {
         this.idEvento = idEvento;
     }
-    
-    
+
     @Override
     public String toString() {
         return "Presentazione{" + "idPresentato=" + idPresentato + ", idPresentatore=" + idPresentatore + ", idEvento=" + idEvento + '}';
     }
-    
-    
+
 }

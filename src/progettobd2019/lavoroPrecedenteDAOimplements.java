@@ -6,13 +6,12 @@
 package progettobd2019;
 
 import java.sql.*;
-import java.util.*;
 
 /**
  *
- * @author Gerardo
+ * @author vince
  */
-public class PersonaDAOimplements implements PersonaDAO {
+public class lavoroPrecedenteDAOimplements {
 
     Connection con = null;
     Statement st = null;
@@ -22,10 +21,10 @@ public class PersonaDAOimplements implements PersonaDAO {
     String hostname = a.hostname;
     String database = a.database;
     String url = "jdbc:postgresql://hostname//database";
-    ArrayList<Persona> per = new ArrayList<>();
+    ArrayList<> per = new ArrayList<>();
 
     @Override
-    public void insertPersona(Persona p) {
+    public void insertLavoroPrecedente(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -55,7 +54,7 @@ public class PersonaDAOimplements implements PersonaDAO {
     }
 
     @Override
-    public void updatePersona(Persona p) {
+    public void updateLavoroPrecedente(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -86,7 +85,7 @@ public class PersonaDAOimplements implements PersonaDAO {
     }
 
     @Override
-    public void deletePersona(Persona p) {
+    public void deleteLavoroPrecedente(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -105,7 +104,7 @@ public class PersonaDAOimplements implements PersonaDAO {
     }
 
     @Override
-    public ArrayList<Persona> selectPersona(Persona p) {
+    public ArrayList<Persona> selectLavoroPrecedente(Persona p) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {

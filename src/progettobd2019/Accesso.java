@@ -10,32 +10,32 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-
 /**
  *
  * @author Gerardo
  */
 public class Accesso {
+
     String username;
     String psw;
     String hostname;
     String database;
     int port;
-    
 
     public Accesso(String username, String psw, String hostname, String database) {
         this.username = username;
         this.psw = psw;
         this.hostname = hostname;
         this.database = database;
-        this.port=port;
+        this.port = port;
     }
-    public Accesso(){
-        username=null;
-        psw=null;
-        hostname=null;
-        database=null;
-        port=0;
+
+    public Accesso() {
+        username = null;
+        psw = null;
+        hostname = null;
+        database = null;
+        port = 0;
     }
 
     public String getUsername() {
@@ -57,7 +57,6 @@ public class Accesso {
     public int getPort() {
         return port;
     }
-    
 
     public void setUsername(String username) {
         this.username = username;
@@ -78,27 +77,26 @@ public class Accesso {
     public void setPort(int port) {
         this.port = port;
     }
-      
-    
-    
-     public Accesso Accesso_utente() throws IOException {
+
+    public Accesso Accesso_utente() throws IOException {
 
         InputStream file = new FileInputStream("login.txt");
         DataInputStream dis = new DataInputStream(file);
-        Accesso a=new Accesso(); 
+        Accesso a = new Accesso();
         while (dis.available() > 0) {
             String x = dis.readUTF();
             if (x == "username") {
-                a.username = dis.readUTF();}
-             else if (x == "password") {
-                a.psw = dis.readUTF();}
-             else if (x == "hostname"){ 
-              a.hostname = dis.readUTF();}
-             else if (x == "database") {
-                a.database = dis.readUTF();}
-             else if (x=="port") { a.port=dis.readInt();
-                
-            }  
+                a.username = dis.readUTF();
+            } else if (x == "password") {
+                a.psw = dis.readUTF();
+            } else if (x == "hostname") {
+                a.hostname = dis.readUTF();
+            } else if (x == "database") {
+                a.database = dis.readUTF();
+            } else if (x == "port") {
+                a.port = dis.readInt();
+
+            }
         }
         return a;
     }
@@ -107,6 +105,5 @@ public class Accesso {
     public String toString() {
         return "Accesso{" + "username=" + username + ", psw=" + psw + ", hostname=" + hostname + ", database=" + database + '}';
     }
-    
-    
+
 }
