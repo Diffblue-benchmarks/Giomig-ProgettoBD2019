@@ -4,13 +4,16 @@
  * and open the template in the editor.
  */
 package progettobd2019;
-import java.time.*;
+
+import java.sql.*;
 import java.util.Objects;
+
 /**
  *
  * @author Gerardo
  */
 public class Persona {
+
     String nome;
     String nomeAzienda;
     String Cognome;
@@ -21,11 +24,11 @@ public class Persona {
     String ruolo;
     int id;
     String foto;
-    LocalDate dataInizio;
-    
-    
+    Date dataInizio;
+    boolean familiare;
+
     public Persona(String nome, String nomeAzienda, String Cognome, String Sesso, String sitoWeb, String telefono, String ruolo,
-            int id, String foto) {
+            int id, String foto, boolean familiare, Date dataInizio, String titolo) {
         this.nome = nome;
         this.nomeAzienda = nomeAzienda;
         this.Cognome = Cognome;
@@ -34,9 +37,10 @@ public class Persona {
         this.telefono = telefono;
         this.ruolo = ruolo;
         this.id = id;
-        this.titolo=titolo;
-        this.dataInizio=dataInizio;
-        this.foto=foto;
+        this.titolo = titolo;
+        this.dataInizio = dataInizio;
+        this.foto = foto;
+        this.familiare = familiare;
     }
 
     public String getNome() {
@@ -75,15 +79,17 @@ public class Persona {
         return titolo;
     }
 
-    public LocalDate getDataInizio() {
+    public Date getDataInizio() {
         return dataInizio;
     }
 
     public String getFoto() {
         return foto;
     }
-    
-    
+
+    public boolean getFamiliare() {
+        return familiare;
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -125,7 +131,7 @@ public class Persona {
         this.foto = foto;
     }
 
-    public void setDataInizio(LocalDate dataInizio) {
+    public void setDataInizio(Date dataInizio) {
         this.dataInizio = dataInizio;
     }
 
@@ -158,19 +164,13 @@ public class Persona {
         }
         return true;
     }
-    
-    
-    
 
     @Override
     public String toString() {
-        return "Persona{" + "nome=" + nome + ", nomeAzienda=" + nomeAzienda + ", Cognome=" 
-                + Cognome + ", Sesso=" + Sesso + ", sitoWeb=" + sitoWeb + ", telefono=" + telefono 
-                + ", titolo=" + titolo + ", ruolo=" + ruolo + ", id=" + id + ", foto=" + foto + ", dataInizio=" 
+        return "Persona{" + "nome=" + nome + ", nomeAzienda=" + nomeAzienda + ", Cognome="
+                + Cognome + ", Sesso=" + Sesso + ", sitoWeb=" + sitoWeb + ", telefono=" + telefono
+                + ", titolo=" + titolo + ", ruolo=" + ruolo + ", id=" + id + ", foto=" + foto + ", dataInizio="
                 + dataInizio + '}';
     }
-   
-    }
 
-    
-
+}
