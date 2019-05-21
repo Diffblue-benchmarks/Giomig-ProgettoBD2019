@@ -25,6 +25,7 @@ public class PersonaDAOimplements implements PersonaDAO {
     String hostname = a.hostname;
     String database = a.database;
     String url = "jdbc:postgresql://hostname//database";
+    ArrayList<Persona> per = new ArrayList<>(); 
 
     @Override
     public void insertPersona(Persona p) {
@@ -36,18 +37,18 @@ public class PersonaDAOimplements implements PersonaDAO {
         try {
             con = DriverManager.getConnection(url, user, psw);
             String query = "INSERT INTO persona (nomeAzienda, nome, cognome, sesso, titolo, foto, familiare, "
-                    + " sitoWeb, telefono, ruolo,dataInizio) VALUES(?,?,?,?,?,?,?,?,?,?)" ;
+                    + " sitoWeb, telefono, ruolo,dataInizio) VALUES(?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement st = con.prepareStatement(query);
-            st.setString(1,p.getNomeAzienda());
-            st.setString(2,p.getNome());
-            st.setString(3,p.getCognome());
-            st.setString(4,p.getSesso());
-            st.setString(5,p.getTitolo());
-            st.setString(6,p.getFoto());
-            st.setBoolean(7,p.getFamiliare());
-            st.setString(8,p.getSitoWeb());
-            st.setString(9,p.getTelefono());
-            st.setString(10,p.getRuolo());
+            st.setString(1, p.getNomeAzienda());
+            st.setString(2, p.getNome());
+            st.setString(3, p.getCognome());
+            st.setString(4, p.getSesso());
+            st.setString(5, p.getTitolo());
+            st.setString(6, p.getFoto());
+            st.setBoolean(7, p.getFamiliare());
+            st.setString(8, p.getSitoWeb());
+            st.setString(9, p.getTelefono());
+            st.setString(10, p.getRuolo());
             st.setDate(11, p.getDataInizio());
             st.executeQuery(query);
             con.close();
@@ -58,16 +59,28 @@ public class PersonaDAOimplements implements PersonaDAO {
 
     @Override
     public void updatePersona(Persona p) {
-            try {
+        try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "INSERT INTO persona (nomeAzienda, nome, cognome, sesso, titolo, foto, familiare, "
-                    + " sitoWeb, telefono, ruolo,dataInizio) VALUES(?,?,?,?,?,?,?,?,?,?)" ;
+            String query = "UPDATE persona SET nomeAzienda=?, nome=?, cognome=?, sesso=?, titolo=?, foto=?, familiare=?, "
+                    + " sitoWeb=?, telefono=?, ruolo=?,dataInizio=? WHERE id=?";
             PreparedStatement st = con.prepareStatement(query);
+            st.setString(1, p.getNomeAzienda());
+            st.setString(2, p.getNome());
+            st.setString(3, p.getCognome());
+            st.setString(4, p.getSesso());
+            st.setString(5, p.getTitolo());
+            st.setString(6, p.getFoto());
+            st.setBoolean(7, p.getFamiliare());
+            st.setString(8, p.getSitoWeb());
+            st.setString(9, p.getTelefono());
+            st.setString(10, p.getRuolo());
+            st.setDate(11, p.getDataInizio());
+            st.setInt(12, p.getId());
             st.executeQuery(query);
             con.close();
         } catch (SQLException e) {
@@ -77,16 +90,16 @@ public class PersonaDAOimplements implements PersonaDAO {
 
     @Override
     public void deletePersona(Persona p) {
-    try {
+        try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-
-            Statement st = con.createStatement();
-            String query = "DELETE ";
+            String query = "DELETE FROM persona WHERE id=? ";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1, p.getId());
             st.executeQuery(query);
             con.close();
         } catch (SQLException e) {
@@ -96,20 +109,26 @@ public class PersonaDAOimplements implements PersonaDAO {
 
     @Override
     public ArrayList<Persona> selectPersona(Persona p) {
-    try {
+        try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-
-            Statement st = con.createStatement();
-            String query = "SELECT * FROM persona";
-            st.executeQuery(query);
+            String query = "SELECT (nomeAzienda, nome, cognome, sesso, titolo, foto, familiare, "
+                    + " sitoWeb, telefono, ruolo,dataInizio) FROM persona";
+            PreparedStatement st = con.prepareStatement(query);
+            ResultSet res = st.executeQuery(query);
+            while (res.next()) {
+                per.add(new Persona(res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6),res.getBoolean(7),res.getString(8),res.getString(9),res.getString(10),res.getDate(11)));
+            }
             con.close();
+            return per;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return null;
         }
+    }
 }
-}
+
