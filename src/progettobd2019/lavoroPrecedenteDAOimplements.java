@@ -49,7 +49,7 @@ public class lavoroPrecedenteDAOimplements {
     }
 
     @Override
-    public void updateLavoroPrecedente(Persona p) {
+    public void updateLavoroPrecedente(lavoroPrecedente lp) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -57,21 +57,14 @@ public class lavoroPrecedenteDAOimplements {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "UPDATE lavoroPrecedente SET idPersona=?, nomeAzienda=?, dataInizio=?, dataFine=?, ruolo=? "
+            String query = "UPDATE lavoroPrecedente SET nomeAzienda=?, dataInizio=?, dataFine=?, ruolo=? "
                     + "WHERE id=?";
             PreparedStatement st = con.prepareStatement(query);
-            st.setString(1, p.getNomeAzienda());
-            st.setString(2, p.getNome());
-            st.setString(3, p.getCognome());
-            st.setString(4, p.getSesso());
-            st.setString(5, p.getTitolo());
-            st.setString(6, p.getFoto());
-            st.setBoolean(7, p.getFamiliare());
-            st.setString(8, p.getSitoWeb());
-            st.setString(9, p.getTelefono());
-            st.setString(10, p.getRuolo());
-            st.setDate(11, p.getDataInizio());
-            st.setInt(12, p.getId());
+            st.setString(1, lp.getNomeAzienda());
+            st.setDate(2, lp.getDataInizio());
+            st.setDate(3, lp.getDataFine());
+            st.setString(4, lp.getRuolo());
+            st.setInt(5, lp.getIdPersona());
             st.executeQuery(query);
             con.close();
         } catch (SQLException e) {
