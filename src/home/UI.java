@@ -352,7 +352,7 @@ public class UI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        Connection conn = null;
+        Connection conn;
         Properties props = new Properties();
         String[] value = Accesso_utente();
         props.setProperty("user", value[0]);
