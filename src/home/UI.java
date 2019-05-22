@@ -243,7 +243,7 @@ public class UI extends javax.swing.JFrame {
         infoPanel.setBackground(new java.awt.Color(255, 255, 255));
         infoPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 0, 0, new java.awt.Color(0, 0, 0)));
 
-        toolPanel.setBackground(new java.awt.Color(175, 175, 175));
+        toolPanel.setBackground(new java.awt.Color(128, 159, 255));
 
         editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-edit-25.png"))); // NOI18N
         editLabel.setText("Edit");
