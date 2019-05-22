@@ -7,7 +7,7 @@ package progettobd2019;
 
 import java.sql.*;
 import java.util.*;
-import home.*;
+import home.UI;
 /**
  *
  * @author Gerardo
@@ -21,7 +21,7 @@ public class PersonaDAO implements DAO<Persona> {
     String psw = a.psw;
     String hostname = a.hostname;
     String database = a.database;
-    String url = "jdbc:postgresql://hostname//database";
+    String url = UI.url;
     ArrayList<Persona> per = new ArrayList<>();
 
     @Override
