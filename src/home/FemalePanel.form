@@ -76,6 +76,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="On."/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="Cognome">
       <Properties>
@@ -84,6 +87,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Pierro"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="name">
       <Properties>
@@ -92,6 +98,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Emidio"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="familiare">
       <Properties>
@@ -99,6 +108,9 @@
           <Font name="Tahoma" size="24" style="0"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

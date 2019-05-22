@@ -10,11 +10,12 @@ import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
+import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
 import javax.swing.Box;
 import javax.swing.JPanel;
-import progettobd2019.Azienda;
+import progettobd2019.*;
 
 /**
  *
@@ -386,6 +387,25 @@ public class UI extends javax.swing.JFrame {
         famSide.setOpaque(false);
         userSide.setOpaque(true);
         jPanel1.removeAll();
+        jPanel1.repaint();
+        PersonaDAO pDAO = new PersonaDAO();
+        List<Persona> list=pDAO.getAll();
+        for (Persona persona : list) {
+            if (persona.getSesso()=="M"){
+                MalePanel mp=new MalePanel(persona.getFamiliare());
+                mp.Title.setText(persona.getTitolo());
+                mp.name.setText(persona.getNome());
+                mp.Cognome.setText(persona.getCognome());
+                jPanel1.add(mp);
+            }
+            else{
+                FemalePanel fp=new FemalePanel(persona.getFamiliare());
+                fp.Title.setText(persona.getTitolo());
+                fp.name.setText(persona.getNome());
+                fp.Cognome.setText(persona.getCognome());
+                jPanel1.add(fp);
+            }
+        }
         jPanel1.repaint();
     }//GEN-LAST:event_userButtonMousePressed
 

@@ -100,10 +100,10 @@ public class FemalePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Cognome;
-    private javax.swing.JLabel Title;
-    private javax.swing.JLabel familiare;
+    public javax.swing.JLabel Cognome;
+    public javax.swing.JLabel Title;
+    public javax.swing.JLabel familiare;
     private javax.swing.JLabel maleIcon;
-    private javax.swing.JLabel name;
+    public javax.swing.JLabel name;
     // End of variables declaration//GEN-END:variables
 }
