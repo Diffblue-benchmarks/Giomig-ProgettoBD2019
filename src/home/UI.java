@@ -288,7 +288,6 @@ public class UI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private int len = 0;
     private void addButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButtonMousePressed
         setColor(addButton);
         resetColor(userButton);
@@ -296,14 +295,10 @@ public class UI extends javax.swing.JFrame {
         userSide.setOpaque(false);
         addSide.setOpaque(true);
         famSide.setOpaque(false);
-
-        //jPanel7.setLayout(new BoxLayout(jPanel7, BoxLayout.Y_AXIS));
-        //jPanel1.setLayout(new GridBagLayout());
         jPanel1.add(new MalePanel(false));
         jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
         jPanel1.add(new FemalePanel(true));
         jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
-
         validate();
         repaint();
     }//GEN-LAST:event_addButtonMousePressed
