@@ -8,13 +8,13 @@ package home;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.border.MatteBorder;
+
 /**
  *
  * @author emidio
  */
 public class MalePanel extends javax.swing.JPanel {
 
-    
     /**
      * Creates new form NewJPanel
      */
@@ -27,9 +27,10 @@ public class MalePanel extends javax.swing.JPanel {
         setBorder(new MatteBorder(0, 0, 1, 0, new Color(0, 38, 77)));
         initComponents();
         setVisible(true);
-        if(fam)
+        if (fam) {
             familiare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-mi-piace-filled-32.png")));
-        
+        }
+
     }
 
     /**
