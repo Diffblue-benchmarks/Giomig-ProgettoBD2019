@@ -7,7 +7,7 @@ package progettobd2019;
 
 import java.sql.*;
 import java.util.*;
-
+import home.UI;
 /**
  *
  * @author vince
@@ -27,7 +27,7 @@ public class AziendaDAO implements DAO<Azienda> {
     @Override
     public void insert(Azienda az) throws SQLException {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -48,7 +48,7 @@ public class AziendaDAO implements DAO<Azienda> {
     @Override
     public void updateKey(Azienda av, Azienda an) {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -71,7 +71,7 @@ public class AziendaDAO implements DAO<Azienda> {
     public void delete(Azienda az) {
 
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -90,7 +90,7 @@ public class AziendaDAO implements DAO<Azienda> {
     @Override
     public List<Azienda> getAll() {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }

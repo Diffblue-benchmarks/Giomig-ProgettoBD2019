@@ -5,6 +5,7 @@
  */
 package progettobd2019;
 
+import home.UI;
 import java.sql.*;
 import java.util.*;
 
@@ -27,7 +28,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     @Override
     public void insert(Presentazione pre) throws SQLException {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -49,7 +50,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     @Override
     public void update(Presentazione pre) {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -72,7 +73,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     public void delete(Presentazione pre) {
 
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -93,7 +94,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     @Override
     public List<Presentazione> getAll() {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }

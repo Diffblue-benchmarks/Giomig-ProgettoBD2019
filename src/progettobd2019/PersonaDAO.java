@@ -7,7 +7,7 @@ package progettobd2019;
 
 import java.sql.*;
 import java.util.*;
-
+import home.*;
 /**
  *
  * @author Gerardo
@@ -27,7 +27,7 @@ public class PersonaDAO implements DAO<Persona> {
     @Override
     public void insert(Persona p) throws SQLException {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -57,7 +57,7 @@ public class PersonaDAO implements DAO<Persona> {
     @Override
     public void update(Persona p) {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -88,7 +88,7 @@ public class PersonaDAO implements DAO<Persona> {
     @Override
     public void delete(Persona p) {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -107,7 +107,7 @@ public class PersonaDAO implements DAO<Persona> {
     @Override
     public List<Persona> getAll() {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }

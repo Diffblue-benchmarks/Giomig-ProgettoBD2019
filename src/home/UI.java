@@ -23,7 +23,7 @@ import javax.swing.border.MatteBorder;
  * @author emidio
  */
 public class UI extends javax.swing.JFrame {
-
+    public static final String driver="org.postgresql.Driver"; 
     /**
      * Creates new form UI
      */

@@ -7,7 +7,7 @@ package progettobd2019;
 
 import java.sql.*;
 import java.util.*;
-
+import home.UI;
 /**
  *
  * @author vince
@@ -27,7 +27,7 @@ public class CellulareDAO implements DAO<Cellulare> {
     @Override
     public void insert(Cellulare c) throws SQLException {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -48,7 +48,7 @@ public class CellulareDAO implements DAO<Cellulare> {
     @Override
     public void update(Cellulare c) {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -68,7 +68,7 @@ public class CellulareDAO implements DAO<Cellulare> {
     @Override
     public void delete(Cellulare c) {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -87,7 +87,7 @@ public class CellulareDAO implements DAO<Cellulare> {
     @Override
     public List<Cellulare> getAll() {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }

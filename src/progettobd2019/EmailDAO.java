@@ -7,7 +7,7 @@ package progettobd2019;
 
 import java.sql.*;
 import java.util.*;
-
+import home.UI;
 /**
  *
  * @author vince
@@ -27,7 +27,7 @@ public class EmailDAO implements DAO<Email> {
     @Override
     public void insert(Email em) throws SQLException {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -48,7 +48,7 @@ public class EmailDAO implements DAO<Email> {
     @Override
     public void update(Email em) {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -68,7 +68,7 @@ public class EmailDAO implements DAO<Email> {
     @Override
     public void delete(Email em) {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -87,7 +87,7 @@ public class EmailDAO implements DAO<Email> {
     @Override
     public List<Email> getAll() {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }

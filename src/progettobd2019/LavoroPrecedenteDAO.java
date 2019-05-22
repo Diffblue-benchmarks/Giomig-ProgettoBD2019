@@ -5,6 +5,7 @@
  */
 package progettobd2019;
 
+import home.UI;
 import java.sql.*;
 import java.util.*;
 
@@ -27,7 +28,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
     @Override
     public void insert(LavoroPrecedente lp) {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -51,7 +52,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
     @Override
     public void update(LavoroPrecedente lp) {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -75,7 +76,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
     @Override
     public void delete(LavoroPrecedente lp) {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -94,7 +95,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
     @Override
     public List<LavoroPrecedente> getAll() {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
