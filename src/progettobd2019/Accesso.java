@@ -80,7 +80,7 @@ public class Accesso {
 
     public Accesso Accesso_utente() throws IOException {
 
-        InputStream file = new FileInputStream("login.txt");
+        InputStream file = new FileInputStream("login.conf");
         DataInputStream dis = new DataInputStream(file);
         Accesso a = new Accesso();
         while (dis.available() > 0) {
