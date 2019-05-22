@@ -10,9 +10,9 @@ import java.util.*;
 
 /**
  *
- * @author Gerardo
+ * @author vince
  */
-public class PresentazioneDAO implements DAO<Presentazione> {
+public class CellulareDAO implements DAO<Cellulare> {
 
     Connection con = null;
     Statement st = null;
@@ -22,10 +22,10 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     String hostname = a.hostname;
     String database = a.database;
     String url = "jdbc:postgresql://hostname//database";
-    ArrayList<Presentazione> pre = new ArrayList<>();
+    ArrayList<Cellulare> ce = new ArrayList<>();
 
     @Override
-    public void insert(Presentazione pre) throws SQLException {
+    public void insert(Cellulare c) throws SQLException {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -33,12 +33,11 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "INSERT INTO Presentazione (idPresentato, idPresentatore, idEvento) "
-                    + "VALUES(?,?,?,?,?)";
+            String query = "INSERT INTO cellulare (numero, idPersona)"
+                    + "VALUES(?,?)";
             PreparedStatement st = con.prepareStatement(query);
-            st.setInt(1, pre.getIdPresentato());
-            st.setInt(2, pre.getIdPresentatore());
-            st.setInt(3, pre.getIdEvento());
+            st.setString(1, c.getNumero());
+            st.setInt(2, c.getIdPersona());
             st.executeQuery(query);
             con.close();
         } catch (SQLException e) {
@@ -47,7 +46,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     }
 
     @Override
-    public void update(Presentazione pre) {
+    public void update(Cellulare c) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -55,12 +54,10 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "UPDATE Presentazione SET idPresentato=?, idPresentatore=?, idEvento=? "
-                    + "WHERE idPresentato=? AND idPresentatore=? AND idEvento=? ";
+            String query = "UPDATE cellulare SET numero=? WHERE idPersona=?";
             PreparedStatement st = con.prepareStatement(query);
-            st.setInt(1, pre.getIdPresentato());
-            st.setInt(2, pre.getIdPresentatore());
-            st.setInt(3, pre.getIdEvento());
+            st.setString(1, c.getNumero());
+            st.setInt(2, c.getIdPersona());
             st.executeQuery(query);
             con.close();
         } catch (SQLException e) {
@@ -69,8 +66,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     }
 
     @Override
-    public void delete(Presentazione pre) {
-
+    public void delete(Cellulare c) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -78,11 +74,9 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "DELETE FROM lavoroPrecedente WHERE idPresentato=? AND idPresentatore=? AND idEvento=?";
+            String query = "DELETE FROM cellulare WHERE idPersona=? ";
             PreparedStatement st = con.prepareStatement(query);
-            st.setInt(1, pre.getIdPresentato());
-            st.setInt(2, pre.getIdPresentatore());
-            st.setInt(3, pre.getIdEvento());
+            st.setInt(1, c.getIdPersona());
             st.executeQuery(query);
             con.close();
         } catch (SQLException e) {
@@ -91,7 +85,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     }
 
     @Override
-    public List<Presentazione> getAll() {
+    public List<Cellulare> getAll() {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -99,20 +93,21 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "SELECT (idPresentato,idPresentatore,idEvento) FROM  Presentazione";
+            String query = "SELECT (numero, idPersona) FROM cellulare";
             PreparedStatement st = con.prepareStatement(query);
             ResultSet res = st.executeQuery(query);
             while (res.next()) {
-                pre.add(new Presentazione(res.getInt(1), res.getInt(2), res.getInt(3)));
+                ce.add(new Cellulare(res.getString(1), res.getInt(2)));
             }
             con.close();
-            return pre;
+            return ce;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
         }
     }
 
-    public void updateKey(Presentazione pv, Presentazione pn) {
+    @Override
+    public void updateKey(Cellulare cv, Cellulare cn) {
     }
 }

@@ -113,4 +113,8 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
             return null;
         }
     }
+
+    @Override
+    public void updateKey(LavoroPrecedente lpv, LavoroPrecedente lpn) {
+    }
 }

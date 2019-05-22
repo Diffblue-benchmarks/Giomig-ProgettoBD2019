@@ -127,4 +127,8 @@ public class PersonaDAO implements DAO<Persona> {
             return null;
         }
     }
+
+    @Override
+    public void updateKey(Persona pv, Persona pn) {
+    }
 }

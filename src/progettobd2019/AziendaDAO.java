@@ -46,7 +46,7 @@ public class AziendaDAO implements DAO<Azienda> {
     }
 
     @Override
-    public void update(Azienda az) {
+    public void updateKey(Azienda av, Azienda an) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -57,8 +57,9 @@ public class AziendaDAO implements DAO<Azienda> {
             String query = "UPDATE Azineda SET nome=?, nomeSettore=?,"
                     + "WHERE nome=?";
             PreparedStatement st = con.prepareStatement(query);
-            st.setString(1, az.getNome());
-            st.setString(2, az.getNomeSettore());
+            st.setString(1, an.getNome());
+            st.setString(2, an.getNomeSettore());
+            st.setString(3, av.getNome());
             st.executeQuery(query);
             con.close();
         } catch (SQLException e) {
@@ -109,4 +110,7 @@ public class AziendaDAO implements DAO<Azienda> {
         }
     }
 
+    @Override
+    public void update(Azienda az) {
+    }
 }
