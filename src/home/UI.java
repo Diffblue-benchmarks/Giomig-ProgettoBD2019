@@ -22,11 +22,22 @@ import javax.swing.JPanel;
 public class UI extends javax.swing.JFrame {
 
     public static final String driver = "org.postgresql.Driver";
-
+    public static Connection conn;
+    
     /**
      * Creates new form UI
      */
     public UI() {
+        Properties props = new Properties();
+        String[] value = Accesso_utente();
+        props.setProperty("user", value[0]);
+        props.setProperty("password", value[1]);
+        String url = "jdbc:postgresql://" + value[2] + ":" + value[3] + "/" + value[4];
+        try {
+            conn = DriverManager.getConnection(url, props);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         initComponents();
     }
 
@@ -78,6 +89,11 @@ public class UI extends javax.swing.JFrame {
         setTitle("Contacts");
         setName("Contacts"); // NOI18N
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         topPanel.setBackground(new java.awt.Color(77, 77, 255));
@@ -278,7 +294,7 @@ public class UI extends javax.swing.JFrame {
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
-                .addGap(415, 415, 415)
+                .addGap(385, 385, 385)
                 .addComponent(toolPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -344,6 +360,16 @@ public class UI extends javax.swing.JFrame {
         jPanel1.repaint();
     }//GEN-LAST:event_famButtonMousePressed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        try{
+        conn.close();
+        }
+        catch(SQLException e){
+            
+        }
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -370,25 +396,6 @@ public class UI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        Connection conn;
-        Properties props = new Properties();
-        String[] value = Accesso_utente();
-        props.setProperty("user", value[0]);
-        props.setProperty("password", value[1]);
-        String url = "jdbc:postgresql://" + value[2] + ":" + value[3] + "/" + value[4];
-        try {
-            conn = DriverManager.getConnection(url, props);
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM settore");
-            ResultSet rs = st.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1));
-            }
-            rs.close();
-            st.close();
-        } catch (SQLException e) {
-
-        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
