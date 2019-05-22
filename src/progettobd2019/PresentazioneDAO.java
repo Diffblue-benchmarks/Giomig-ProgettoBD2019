@@ -23,7 +23,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     String hostname = a.hostname;
     String database = a.database;
     String url = "jdbc:postgresql://hostname//database";
-    ArrayList<Presentazione> pre = new ArrayList<>();
+    ArrayList<Presentazione> presentatori = new ArrayList<>();
 
     @Override
     public void insert(Presentazione pre) throws SQLException {
@@ -107,10 +107,10 @@ public class PresentazioneDAO implements DAO<Presentazione> {
             PreparedStatement st = con.prepareStatement(query);
             ResultSet res = st.executeQuery(query);
             while (res.next()) {
-                pre.add(new Presentazione(res.getInt(1), res.getInt(2), res.getInt(3)));
+                presentatori.add(new Presentazione(res.getInt(1), res.getInt(2), res.getInt(3)));
             }
             con.close();
-            return pre;
+            return presentatori;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
