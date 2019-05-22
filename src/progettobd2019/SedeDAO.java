@@ -22,7 +22,7 @@ public class SedeDAO implements DAO<Sede> {
             st.setString(1, s.getCapCitta());
             st.setString(2, s.getNomeAzienda());
             st.setString(3, s.getIndirizzo());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -38,7 +38,7 @@ public class SedeDAO implements DAO<Sede> {
             st.setString(2, sn.getNomeAzienda());
             st.setString(3, sn.getIndirizzo());
             st.setString(4, sv.getCapCitta());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -50,7 +50,7 @@ public class SedeDAO implements DAO<Sede> {
             String query = "DELETE FROM sede WHERE capCitta=? ";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, s.getCapCitta());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -62,7 +62,7 @@ public class SedeDAO implements DAO<Sede> {
             String query = "SELECT (capCitta, nomeAzienda, indirizzo)"
                     + "FROM sede";
             PreparedStatement st = UI.conn.prepareStatement(query);
-            ResultSet res = st.executeQuery(query);
+            ResultSet res = st.executeQuery();
             while (res.next()) {
                 se.add(new Sede(res.getString(1), res.getString(2), res.getString(3)));
             }

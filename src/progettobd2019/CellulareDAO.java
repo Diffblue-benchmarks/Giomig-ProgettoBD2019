@@ -25,7 +25,7 @@ public class CellulareDAO implements DAO<Cellulare> {
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, c.getNumero());
             st.setInt(2, c.getIdPersona());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -38,7 +38,7 @@ public class CellulareDAO implements DAO<Cellulare> {
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, c.getNumero());
             st.setInt(2, c.getIdPersona());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -50,7 +50,7 @@ public class CellulareDAO implements DAO<Cellulare> {
             String query = "DELETE FROM cellulare WHERE idPersona=? ";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, c.getIdPersona());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -61,7 +61,7 @@ public class CellulareDAO implements DAO<Cellulare> {
         try {
             String query = "SELECT (numero, idPersona) FROM cellulare";
             PreparedStatement st = UI.conn.prepareStatement(query);
-            ResultSet res = st.executeQuery(query);
+            ResultSet res = st.executeQuery();
             while (res.next()) {
                 ce.add(new Cellulare(res.getString(1), res.getInt(2)));
             }

@@ -28,7 +28,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
             st.setDate(3, lp.getDataInizio());
             st.setDate(4, lp.getDataFine());
             st.setString(5, lp.getRuolo());
-            st.executeQuery(query);
+            st.executeQuery();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -46,7 +46,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
             st.setDate(3, lp.getDataFine());
             st.setString(4, lp.getRuolo());
             st.setInt(5, lp.getIdPersona());
-            st.executeQuery(query);
+            st.executeQuery();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -60,7 +60,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
             String query = "DELETE FROM lavoroPrecedente WHERE id=? ";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, lp.getIdPersona());
-            st.executeQuery(query);
+            st.executeQuery();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -72,7 +72,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
         try {
             String query = "SELECT (idPersona,nomeAzienda,dataInizio,dataFine,ruolo) FROM lavoroPrecedente";
             PreparedStatement st = UI.conn.prepareStatement(query);
-            ResultSet res = st.executeQuery(query);
+            ResultSet res = st.executeQuery();
             while (res.next()) {
                 per.add(new LavoroPrecedente(res.getInt(1), res.getString(2), res.getDate(3), res.getDate(4), res.getString(5)));
             }

@@ -25,7 +25,7 @@ public class EmailDAO implements DAO<Email> {
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, em.getIndirizzoEmail());
             st.setInt(2, em.getIdPersona());
-            st.executeQuery(query);
+            st.executeQuery();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -39,7 +39,7 @@ public class EmailDAO implements DAO<Email> {
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, em.getIndirizzoEmail());
             st.setInt(2, em.getIdPersona());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -51,7 +51,7 @@ public class EmailDAO implements DAO<Email> {
             String query = "DELETE FROM email WHERE idPersona=? ";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, em.getIdPersona());
-            st.executeQuery(query);
+            st.executeQuery();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -63,7 +63,7 @@ public class EmailDAO implements DAO<Email> {
         try {
             String query = "SELECT (indirizzoEmail, idPersona) FROM email";
             PreparedStatement st = UI.conn.prepareStatement(query);
-            ResultSet res = st.executeQuery(query);
+            ResultSet res = st.executeQuery();
             while (res.next()) {
                 ema.add(new Email(res.getString(1), res.getInt(2)));
             }

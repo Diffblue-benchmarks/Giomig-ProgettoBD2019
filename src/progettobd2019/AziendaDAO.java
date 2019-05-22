@@ -25,7 +25,7 @@ public class AziendaDAO implements DAO<Azienda> {
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, az.getNome());
             st.setString(2, az.getNomeSettore());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -40,7 +40,7 @@ public class AziendaDAO implements DAO<Azienda> {
             st.setString(1, an.getNome());
             st.setString(2, an.getNomeSettore());
             st.setString(3, av.getNome());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -52,7 +52,7 @@ public class AziendaDAO implements DAO<Azienda> {
             String query = "DELETE FROM azienda WHERE nome=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, az.getNome());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -63,7 +63,7 @@ public class AziendaDAO implements DAO<Azienda> {
         try {
             String query = "SELECT (nome,nomeAzienda) FROM  azienda";
             PreparedStatement st = UI.conn.prepareStatement(query);
-            ResultSet res = st.executeQuery(query);
+            ResultSet res = st.executeQuery();
             while (res.next()) {
                 az.add(new Azienda(res.getString(1), res.getString(2)));
             }

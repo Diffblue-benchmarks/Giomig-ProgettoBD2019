@@ -26,7 +26,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
             st.setInt(1, pre.getIdPresentato());
             st.setInt(2, pre.getIdPresentatore());
             st.setInt(3, pre.getIdEvento());
-            st.executeQuery(query);
+            st.executeQuery();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -45,7 +45,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
             st.setInt(4, pv.getIdPresentato());
             st.setInt(5, pv.getIdPresentatore());
             st.setInt(6, pv.getIdEvento());
-            st.executeQuery(query);
+            st.executeQuery();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -61,7 +61,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
             st.setInt(1, pre.getIdPresentato());
             st.setInt(2, pre.getIdPresentatore());
             st.setInt(3, pre.getIdEvento());
-            st.executeQuery(query);
+            st.executeQuery();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -73,7 +73,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         try {
             String query = "SELECT (idPresentato,idPresentatore,idEvento) FROM  presentazione";
             PreparedStatement st = UI.conn.prepareStatement(query);
-            ResultSet res = st.executeQuery(query);
+            ResultSet res = st.executeQuery();
             while (res.next()) {
                 presentatori.add(new Presentazione(res.getInt(1), res.getInt(2), res.getInt(3)));
             }

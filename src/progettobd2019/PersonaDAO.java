@@ -34,7 +34,7 @@ public class PersonaDAO implements DAO<Persona> {
             st.setString(9, p.getTelefono());
             st.setString(10, p.getRuolo());
             st.setDate(11, p.getDataInizio());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -58,7 +58,7 @@ public class PersonaDAO implements DAO<Persona> {
             st.setString(10, p.getRuolo());
             st.setDate(11, p.getDataInizio());
             st.setInt(12, p.getId());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -70,7 +70,7 @@ public class PersonaDAO implements DAO<Persona> {
             String query = "DELETE FROM persona WHERE id=? ";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, p.getId());
-            st.executeQuery(query);
+            st.executeQuery();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
