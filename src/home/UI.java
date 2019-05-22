@@ -28,6 +28,11 @@ public class UI extends javax.swing.JFrame {
      * Creates new form UI
      */
     public UI() {
+        try {
+            Class.forName(UI.driver);
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
         Properties props = new Properties();
         String[] value = Accesso_utente();
         props.setProperty("user", value[0]);
