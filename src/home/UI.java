@@ -5,25 +5,15 @@
  */
 package home;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
 import java.util.Scanner;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.LayoutStyle;
-import javax.swing.border.MatteBorder;
-
-import progettobd2019.*;
 
 /**
  *

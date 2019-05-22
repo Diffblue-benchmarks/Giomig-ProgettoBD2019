@@ -8,8 +8,6 @@ package home;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.border.MatteBorder;
-
-import progettobd2019.Persona;
 /**
  *
  * @author emidio

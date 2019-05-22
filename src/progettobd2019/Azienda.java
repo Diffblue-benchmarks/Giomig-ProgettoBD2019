@@ -5,7 +5,6 @@
  */
 package progettobd2019;
 
-import java.util.logging.Logger;
 
 /**
  *
