@@ -39,7 +39,7 @@ public class Azienda {
 
     @Override
     public String toString() {
-        return "Azienda{" + "nome=" + nome + ", nomeSettore=" + nomeSettore + '}';
+        return "Nome=" + nome + ", NomeSettore=" + nomeSettore;
     }
 
 }

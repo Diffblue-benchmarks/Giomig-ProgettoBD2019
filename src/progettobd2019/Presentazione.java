@@ -47,11 +47,6 @@ public class Presentazione {
 
     @Override
     public String toString() {
-        return "Presentazione{" + "idPresentato=" + idPresentato + ", idPresentatore=" + idPresentatore + ", idEvento=" + idEvento + '}';
+        return "IdPresentato=" + idPresentato + ", IdPresentatore=" + idPresentatore + ", IdEvento=" + idEvento + '}';
     }
-
-    void add(Presentazione presentazione) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
