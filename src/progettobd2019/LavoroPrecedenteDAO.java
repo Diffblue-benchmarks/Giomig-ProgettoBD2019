@@ -12,7 +12,7 @@ import java.util.*;
  *
  * @author vince
  */
-public class lavoroPrecedenteDAOimplements implements DAO_Interface {
+public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
 
     Connection con = null;
     Statement st = null;
@@ -22,10 +22,11 @@ public class lavoroPrecedenteDAOimplements implements DAO_Interface {
     String hostname = a.hostname;
     String database = a.database;
     String url = "jdbc:postgresql://hostname//database";
-    ArrayList<lavoroPrecedente> per = new ArrayList<>();
+    ArrayList<LavoroPrecedente> per = new ArrayList<>();
 
 
-    public void insert(lavoroPrecedente lp) {
+     @Override
+    public void insert(LavoroPrecedente lp) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -49,7 +50,8 @@ public class lavoroPrecedenteDAOimplements implements DAO_Interface {
     }
 
 
-    public void update(lavoroPrecedente lp) {
+    @Override
+    public void update(LavoroPrecedente lp) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -72,8 +74,8 @@ public class lavoroPrecedenteDAOimplements implements DAO_Interface {
         }
     }
 
-
-    public void delete(lavoroPrecedente lp) {
+    @Override
+    public void delete(LavoroPrecedente lp) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -92,7 +94,8 @@ public class lavoroPrecedenteDAOimplements implements DAO_Interface {
     }
 
 
-    public ArrayList<lavoroPrecedente> select(lavoroPrecedente lp) {
+    @Override
+    public List<LavoroPrecedente> getAll() {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -104,7 +107,7 @@ public class lavoroPrecedenteDAOimplements implements DAO_Interface {
             PreparedStatement st = con.prepareStatement(query);
             ResultSet res = st.executeQuery(query);
             while (res.next()) {
-                per.add(new lavoroPrecedente(res.getInt(1), res.getString(2), res.getDate(3), res.getDate(4), res.getString(5)));
+                per.add(new LavoroPrecedente(res.getInt(1), res.getString(2), res.getDate(3), res.getDate(4), res.getString(5)));
             }
             con.close();
             return per;
@@ -112,25 +115,5 @@ public class lavoroPrecedenteDAOimplements implements DAO_Interface {
             System.out.println(e.getMessage());
             return null;
         }
-    }
-
-    @Override
-    public void insert(Object e) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void update() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void delete() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArrayList select() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

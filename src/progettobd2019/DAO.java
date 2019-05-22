@@ -6,19 +6,20 @@
 package progettobd2019;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author vince
+ * @param <T>
  */
-public interface DAO_Interface<T> {
+public interface DAO<T> {
 
-    public void insert(T e) throws SQLException;
+    public void insert(T t) throws SQLException;
 
-    public void update() throws SQLException;
+    public void update(T t) throws SQLException;
 
-    public void delete() throws SQLException;
+    public void delete(T t) throws SQLException;
 
-    public ArrayList<T> select() throws SQLException;
+    public List<T> getAll() throws SQLException;
 }
