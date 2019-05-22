@@ -315,7 +315,6 @@ public class UI extends javax.swing.JFrame {
         addSide.setOpaque(false);
         famSide.setOpaque(false);
         userSide.setOpaque(true);
-
         jPanel1.removeAll();
         jPanel1.repaint();
     }//GEN-LAST:event_userButtonMousePressed
@@ -327,6 +326,8 @@ public class UI extends javax.swing.JFrame {
         addSide.setOpaque(false);
         userSide.setOpaque(false);
         famSide.setOpaque(true);
+        jPanel1.removeAll();
+        jPanel1.repaint();
     }//GEN-LAST:event_famButtonMousePressed
 
     /**
