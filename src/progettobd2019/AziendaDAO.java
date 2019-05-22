@@ -14,32 +14,17 @@ import home.UI;
  */
 public class AziendaDAO implements DAO<Azienda> {
 
-    Connection con = null;
-    Statement st = null;
-    Accesso a = new Accesso();
-    String user = a.username;
-    String psw = a.psw;
-    String hostname = a.hostname;
-    String database = a.database;
-    String url = "jdbc:postgresql://hostname//database";
     ArrayList<Azienda> az = new ArrayList<>();
 
     @Override
     public void insert(Azienda az) throws SQLException {
         try {
-            Class.forName(UI.driver);
-        } catch (ClassNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        }
-        try {
-            con = DriverManager.getConnection(url, user, psw);
             String query = "INSERT INTO azienda (nome, nomeSettore) "
                     + "VALUES(?,?)";
-            PreparedStatement st = con.prepareStatement(query);
+            PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, az.getNome());
             st.setString(2, az.getNomeSettore());
             st.executeQuery(query);
-            con.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
