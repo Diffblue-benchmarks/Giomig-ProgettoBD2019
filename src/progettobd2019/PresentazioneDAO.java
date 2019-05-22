@@ -48,7 +48,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     }
 
     @Override
-    public void update(Presentazione pre) {
+    public void updateKey(Presentazione pv, Presentazione pn) {
         try {
             Class.forName(UI.driver);
         } catch (ClassNotFoundException ex) {
@@ -59,9 +59,12 @@ public class PresentazioneDAO implements DAO<Presentazione> {
             String query = "UPDATE presentazione SET idPresentato=?, idPresentatore=?, idEvento=? "
                     + "WHERE idPresentato=? AND idPresentatore=? AND idEvento=? ";
             PreparedStatement st = con.prepareStatement(query);
-            st.setInt(1, pre.getIdPresentato());
-            st.setInt(2, pre.getIdPresentatore());
-            st.setInt(3, pre.getIdEvento());
+            st.setInt(1, pn.getIdPresentato());
+            st.setInt(2, pn.getIdPresentatore());
+            st.setInt(3, pn.getIdEvento());
+            st.setInt(4, pv.getIdPresentato());
+            st.setInt(5, pv.getIdPresentatore());
+            st.setInt(6, pv.getIdEvento());
             st.executeQuery(query);
             con.close();
         } catch (SQLException e) {
@@ -115,6 +118,6 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     }
 
     @Override
-    public void updateKey(Presentazione pv, Presentazione pn) {
+    public void update(Presentazione per) {
     }
 }
