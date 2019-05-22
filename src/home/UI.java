@@ -75,6 +75,7 @@ public class UI extends javax.swing.JFrame {
         toolPanel = new javax.swing.JPanel();
         editLabel = new javax.swing.JLabel();
         deleteLabel = new javax.swing.JLabel();
+        infoScroll = new javax.swing.JScrollPane();
         contactsPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
@@ -287,19 +288,25 @@ public class UI extends javax.swing.JFrame {
         deleteLabel.setText("Delete");
         toolPanel.add(deleteLabel);
 
+        infoScroll.setBorder(null);
+        infoScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        infoScroll.setOpaque(false);
+
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
         infoPanelLayout.setHorizontalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(toolPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(infoScroll)
+                    .addComponent(toolPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoPanelLayout.createSequentialGroup()
-                .addGap(385, 385, 385)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
+                .addComponent(infoScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(toolPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -339,6 +346,11 @@ public class UI extends javax.swing.JFrame {
         jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
         jPanel1.add(new FemalePanel(true));
         jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
+        
+        infoScroll.add(new newUserPanel());
+        infoScroll.validate();
+        infoScroll.repaint();
+        
         validate();
         repaint();
     }//GEN-LAST:event_addButtonMousePressed
@@ -444,6 +456,7 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JLabel famIco;
     private javax.swing.JPanel famSide;
     private javax.swing.JPanel infoPanel;
+    private javax.swing.JScrollPane infoScroll;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
