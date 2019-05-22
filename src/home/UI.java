@@ -12,9 +12,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 import java.util.Scanner;
 import javax.swing.Box;
@@ -368,18 +366,25 @@ public class UI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        Connection conn=null;
+        Connection conn = null;
         Properties props = new Properties();
-        String[] value=Accesso_utente();
+        String[] value = Accesso_utente();
         props.setProperty("user", value[0]);
         props.setProperty("password", value[1]);
-        String url = "jdbc:postgresql://"+value[2]+":"+value[3]+"/"+value[4];
-        try{
-        conn=DriverManager.getConnection(url, props);
+        String url = "jdbc:postgresql://" + value[2] + ":" + value[3] + "/" + value[4];
+        try {
+            conn = DriverManager.getConnection(url, props);
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM settore");
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1));
+            }
+            rs.close();
+            st.close();
+        } catch (SQLException e) {
+
         }
-        catch(SQLException e){
-            
-        }
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -387,11 +392,11 @@ public class UI extends javax.swing.JFrame {
             }
         });
     }
-    
+
     static public String[] Accesso_utente() {
         try {
             Scanner s = new Scanner(new File("login.conf"));
-            String[] x=new String[5];
+            String[] x = new String[5];
             x[0] = s.nextLine().substring(10);
             x[1] = s.nextLine().substring(10);
             x[2] = s.nextLine().substring(10);
