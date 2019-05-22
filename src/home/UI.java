@@ -42,14 +42,14 @@ public class UI extends javax.swing.JFrame {
         String url = "jdbc:postgresql://" + value[2] + ":" + value[3] + "/" + value[4];
         try {
             conn = DriverManager.getConnection(url, props);
-            
+
             String query = "SELECT * FROM  settore";
-            Statement st=conn.createStatement();
+            Statement st = conn.createStatement();
             ResultSet res = st.executeQuery(query);
             while (res.next()) {
                 System.out.println(res.getString(1));
             }
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -370,11 +370,11 @@ public class UI extends javax.swing.JFrame {
         jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
         jPanel1.add(new FemalePanel(true));
         jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
-        
+
         infoScrollPanel.add(new newUserPanel());
         infoScrollPanel.validate();
         infoScrollPanel.repaint();
-        
+
         validate();
         repaint();
     }//GEN-LAST:event_addButtonMousePressed
@@ -389,24 +389,38 @@ public class UI extends javax.swing.JFrame {
         jPanel1.removeAll();
         jPanel1.repaint();
         PersonaDAO pDAO = new PersonaDAO();
-        List<Persona> list=pDAO.getAll();
+        List<Persona> list = pDAO.getAll();
         for (Persona persona : list) {
-            if (persona.getSesso()=="M"){
-                MalePanel mp=new MalePanel(persona.getFamiliare());
+            if (persona.getSesso().equals("M")) {
+                MalePanel mp = new MalePanel(persona.getFamiliare());
                 mp.Title.setText(persona.getTitolo());
                 mp.name.setText(persona.getNome());
                 mp.Cognome.setText(persona.getCognome());
                 jPanel1.add(mp);
-            }
-            else{
-                FemalePanel fp=new FemalePanel(persona.getFamiliare());
+                mp.validate();
+                jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
+                infoScrollPanel.add(new newUserPanel());
+                infoScrollPanel.validate();
+                infoScrollPanel.repaint();
+                jPanel1.repaint();
+                validate();
+                repaint();
+            } else {
+                FemalePanel fp = new FemalePanel(persona.getFamiliare());
                 fp.Title.setText(persona.getTitolo());
                 fp.name.setText(persona.getNome());
                 fp.Cognome.setText(persona.getCognome());
                 jPanel1.add(fp);
+                fp.validate();
+                jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
+                infoScrollPanel.add(new newUserPanel());
+                infoScrollPanel.validate();
+                infoScrollPanel.repaint();
+                jPanel1.repaint();
+                validate();
+                repaint();
             }
         }
-        jPanel1.repaint();
     }//GEN-LAST:event_userButtonMousePressed
 
     private void famButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_famButtonMousePressed
