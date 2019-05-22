@@ -303,6 +303,7 @@ public class UI extends javax.swing.JFrame {
         //jPanel7.setLayout(new BoxLayout(jPanel7, BoxLayout.Y_AXIS));
         //jPanel1.setLayout(new GridBagLayout());
         jPanel1.add(new MalePanel(false));
+        jPanel1.add(Box.createRigidArea(new Dimension(5,5)));
         jPanel1.add(new FemalePanel(true));
         jPanel1.add(Box.createRigidArea(new Dimension(5,5)));
         
