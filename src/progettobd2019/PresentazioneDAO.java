@@ -47,7 +47,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     }
 
     @Override
-    public void update (Presentazione pre){
+    public void update(Presentazione pre) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -55,30 +55,8 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "UPDATE Presentazione SET ?? "
-                    + "WHERE idPresentato=? && idPresentatore=? && idEvento=? ";
-            PreparedStatement st = con.prepareStatement(query);
-            st.setInt(1, pre.getIdPresentato());
-            st.setInt(2, pre.getIdPresentatore());
-            st.setInt(3, pre.getIdEvento());            
-            st.executeQuery(query);
-            con.close();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    
-    @Override
-    public void delete(Presentazione pre){
-    
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        }
-        try {
-            con = DriverManager.getConnection(url, user, psw);
-            String query = "DELETE FROM lavoroPrecedente WHERE idPresentato=? && idPresentatore=? && idEvento=?";
+            String query = "UPDATE Presentazione SET idPresentato=?, idPresentatore=?, idEvento=? "
+                    + "WHERE idPresentato=? AND idPresentatore=? AND idEvento=? ";
             PreparedStatement st = con.prepareStatement(query);
             st.setInt(1, pre.getIdPresentato());
             st.setInt(2, pre.getIdPresentatore());
@@ -89,7 +67,29 @@ public class PresentazioneDAO implements DAO<Presentazione> {
             System.out.println(e.getMessage());
         }
     }
-    
+
+    @Override
+    public void delete(Presentazione pre) {
+
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
+        try {
+            con = DriverManager.getConnection(url, user, psw);
+            String query = "DELETE FROM lavoroPrecedente WHERE idPresentato=? AND idPresentatore=? AND idEvento=?";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1, pre.getIdPresentato());
+            st.setInt(2, pre.getIdPresentatore());
+            st.setInt(3, pre.getIdEvento());
+            st.executeQuery(query);
+            con.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     @Override
     public List<Presentazione> getAll() {
         try {
@@ -103,7 +103,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
             PreparedStatement st = con.prepareStatement(query);
             ResultSet res = st.executeQuery(query);
             while (res.next()) {
-                pre.add(Presentazione(res.getInt(1), res.getInt(2), res.getInt(3)));
+                pre.add(new Presentazione(res.getInt(1), res.getInt(2), res.getInt(3)));
             }
             con.close();
             return pre;
@@ -113,8 +113,4 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         }
     }
 
-    private Presentazione Presentazione(int aInt, int aInt0, int aInt1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    }
-
+}
