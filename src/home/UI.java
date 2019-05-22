@@ -432,6 +432,41 @@ public class UI extends javax.swing.JFrame {
         famSide.setOpaque(true);
         jPanel1.removeAll();
         jPanel1.repaint();
+        PersonaDAO pDAO = new PersonaDAO();
+        List<Persona> list = pDAO.getAll();
+        for (Persona persona : list) {
+            if (persona.getFamiliare()) {
+                if (persona.getSesso().equals("M")) {
+                    MalePanel mp = new MalePanel(persona.getFamiliare());
+                    mp.Title.setText(persona.getTitolo());
+                    mp.name.setText(persona.getNome());
+                    mp.Cognome.setText(persona.getCognome());
+                    jPanel1.add(mp);
+                    mp.validate();
+                    jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
+                    infoScrollPanel.add(new newUserPanel());
+                    infoScrollPanel.validate();
+                    infoScrollPanel.repaint();
+                    jPanel1.repaint();
+                    validate();
+                    repaint();
+                } else {
+                    FemalePanel fp = new FemalePanel(persona.getFamiliare());
+                    fp.Title.setText(persona.getTitolo());
+                    fp.name.setText(persona.getNome());
+                    fp.Cognome.setText(persona.getCognome());
+                    jPanel1.add(fp);
+                    fp.validate();
+                    jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
+                    infoScrollPanel.add(new newUserPanel());
+                    infoScrollPanel.validate();
+                    infoScrollPanel.repaint();
+                    jPanel1.repaint();
+                    validate();
+                    repaint();
+                }
+            }
+        }
     }//GEN-LAST:event_famButtonMousePressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
