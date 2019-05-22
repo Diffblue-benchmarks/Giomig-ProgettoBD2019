@@ -18,8 +18,7 @@ import javax.swing.border.MatteBorder;
 public class ContactPanel extends JPanel {
 
     Dimension size;
-    
-    
+
     public ContactPanel() {
         size = new Dimension(470, 73);
         setPreferredSize(size);

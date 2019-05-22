@@ -8,21 +8,22 @@ package home;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.*;
+
 /**
  *
  * @author emidio
  */
-
 public class ContactButton extends JButton {
+
     private static final int WIDTH = 469;
     private static final int HEIGHT = 73;
-           
-    public ContactButton(){
+
+    public ContactButton() {
         System.out.println(getPreferredSize() + "     " + getSize());
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        
+
         setBackground(Color.red);
-       // setText("CLICCAMI");
+        // setText("CLICCAMI");
         setVisible(true);
-    }    
+    }
 }

@@ -20,6 +20,6 @@ public class progettoDB2019 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
     }
 }

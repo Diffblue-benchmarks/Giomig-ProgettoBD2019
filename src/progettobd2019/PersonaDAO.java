@@ -25,7 +25,7 @@ public class PersonaDAO implements DAO<Persona> {
     ArrayList<Persona> per = new ArrayList<>();
 
     @Override
-    public void insert(Persona p) throws SQLException{
+    public void insert(Persona p) throws SQLException {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -126,5 +126,5 @@ public class PersonaDAO implements DAO<Persona> {
             System.out.println(e.getMessage());
             return null;
         }
-    }    
+    }
 }

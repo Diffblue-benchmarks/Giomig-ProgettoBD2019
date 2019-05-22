@@ -245,13 +245,11 @@ public class UI extends javax.swing.JFrame {
 
         //jPanel7.setLayout(new BoxLayout(jPanel7, BoxLayout.Y_AXIS));
         //jPanel1.setLayout(new GridBagLayout());
-        
-        jPanel1.add( new MalePanel());
-        
+        jPanel1.add(new MalePanel());
+
         validate();
         repaint();
     }//GEN-LAST:event_addButtonMousePressed
-
 
     private void userButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userButtonMousePressed
         setColor(userButton);
@@ -302,7 +300,6 @@ public class UI extends javax.swing.JFrame {
     private void resetColor(JPanel panel) {
         panel.setBackground(new Color(1, 68, 133));
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addButton;
