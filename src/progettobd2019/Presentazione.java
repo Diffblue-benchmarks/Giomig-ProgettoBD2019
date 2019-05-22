@@ -50,4 +50,8 @@ public class Presentazione {
         return "Presentazione{" + "idPresentato=" + idPresentato + ", idPresentatore=" + idPresentatore + ", idEvento=" + idEvento + '}';
     }
 
+    void add(Presentazione presentazione) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
