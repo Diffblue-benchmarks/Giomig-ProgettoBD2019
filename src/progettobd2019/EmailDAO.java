@@ -21,7 +21,7 @@ public class EmailDAO implements DAO<Email> {
     String psw = a.psw;
     String hostname = a.hostname;
     String database = a.database;
-    String url = UI.url;
+    String url = "jdbc:postgresql://hostname//database";
     ArrayList<Email> ema = new ArrayList<>();
 
     @Override

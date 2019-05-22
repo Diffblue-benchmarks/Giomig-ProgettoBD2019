@@ -21,7 +21,7 @@ public class AziendaDAO implements DAO<Azienda> {
     String psw = a.psw;
     String hostname = a.hostname;
     String database = a.database;
-    String url = UI.url;
+    String url = "jdbc:postgresql://hostname//database";
     ArrayList<Azienda> az = new ArrayList<>();
 
     @Override

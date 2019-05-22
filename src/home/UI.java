@@ -25,7 +25,7 @@ import progettobd2019.*;
  */
 public class UI extends javax.swing.JFrame {
     public static final String driver="org.postgresql.Driver"; 
-    public static final String url="jdbc:postgresql://hostname//database";
+    
     /**
      * Creates new form UI
      */
