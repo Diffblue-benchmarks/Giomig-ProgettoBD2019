@@ -76,6 +76,7 @@ public class UI extends javax.swing.JFrame {
         editLabel = new javax.swing.JLabel();
         deleteLabel = new javax.swing.JLabel();
         infoScroll = new javax.swing.JScrollPane();
+        infoScrollPanel = new javax.swing.JPanel();
         contactsPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
@@ -292,6 +293,19 @@ public class UI extends javax.swing.JFrame {
         infoScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         infoScroll.setOpaque(false);
 
+        javax.swing.GroupLayout infoScrollPanelLayout = new javax.swing.GroupLayout(infoScrollPanel);
+        infoScrollPanel.setLayout(infoScrollPanelLayout);
+        infoScrollPanelLayout.setHorizontalGroup(
+            infoScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 509, Short.MAX_VALUE)
+        );
+        infoScrollPanelLayout.setVerticalGroup(
+            infoScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 409, Short.MAX_VALUE)
+        );
+
+        infoScroll.setViewportView(infoScrollPanel);
+
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
         infoPanelLayout.setHorizontalGroup(
@@ -347,9 +361,9 @@ public class UI extends javax.swing.JFrame {
         jPanel1.add(new FemalePanel(true));
         jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
         
-        infoScroll.add(new newUserPanel());
-        infoScroll.validate();
-        infoScroll.repaint();
+        infoScrollPanel.add(new newUserPanel());
+        infoScrollPanel.validate();
+        infoScrollPanel.repaint();
         
         validate();
         repaint();
@@ -456,6 +470,7 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JPanel famSide;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JScrollPane infoScroll;
+    private javax.swing.JPanel infoScrollPanel;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
