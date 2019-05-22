@@ -23,7 +23,7 @@ public class UI extends javax.swing.JFrame {
 
     public static final String driver = "org.postgresql.Driver";
     public static Connection conn;
-    
+
     /**
      * Creates new form UI
      */
@@ -367,11 +367,10 @@ public class UI extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        try{
-        conn.close();
-        }
-        catch(SQLException e){
-            
+        try {
+            conn.close();
+        } catch (SQLException e) {
+
         }
     }//GEN-LAST:event_formWindowClosing
 

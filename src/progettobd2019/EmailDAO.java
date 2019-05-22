@@ -19,9 +19,7 @@ public class EmailDAO implements DAO<Email> {
 
     @Override
     public void insert(Email em) throws SQLException {
-
         try {
-
             String query = "INSERT INTO email (indirizzoEmail, idPersona)"
                     + "VALUES(?,?)";
             PreparedStatement st = UI.conn.prepareStatement(query);
@@ -36,9 +34,7 @@ public class EmailDAO implements DAO<Email> {
 
     @Override
     public void update(Email em) {
-
         try {
-
             String query = "UPDATE email SET indirizzoEmail=? WHERE idPersona=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, em.getIndirizzoEmail());
@@ -51,9 +47,7 @@ public class EmailDAO implements DAO<Email> {
 
     @Override
     public void delete(Email em) {
-
         try {
-
             String query = "DELETE FROM email WHERE idPersona=? ";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, em.getIdPersona());
@@ -66,16 +60,13 @@ public class EmailDAO implements DAO<Email> {
 
     @Override
     public List<Email> getAll() {
-
         try {
-
             String query = "SELECT (indirizzoEmail, idPersona) FROM email";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery(query);
             while (res.next()) {
                 ema.add(new Email(res.getString(1), res.getInt(2)));
             }
-
             return ema;
         } catch (SQLException e) {
             System.out.println(e.getMessage());

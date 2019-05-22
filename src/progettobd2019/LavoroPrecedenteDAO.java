@@ -19,9 +19,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
 
     @Override
     public void insert(LavoroPrecedente lp) {
-
         try {
-
             String query = "INSERT INTO lavoroPrecedente (idPersona, nomeAzienda, dataInizio, dataFine, ruolo) "
                     + "VALUES(?,?,?,?,?)";
             PreparedStatement st = UI.conn.prepareStatement(query);
@@ -39,9 +37,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
 
     @Override
     public void update(LavoroPrecedente lp) {
-
         try {
-
             String query = "UPDATE lavoroPrecedente SET nomeAzienda=?, dataInizio=?, dataFine=?, ruolo=? "
                     + "WHERE id=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
@@ -59,7 +55,6 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
 
     @Override
     public void delete(LavoroPrecedente lp) {
-
         try {
 
             String query = "DELETE FROM lavoroPrecedente WHERE id=? ";
@@ -74,16 +69,13 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
 
     @Override
     public List<LavoroPrecedente> getAll() {
-
         try {
-
             String query = "SELECT (idPersona,nomeAzienda,dataInizio,dataFine,ruolo) FROM lavoroPrecedente";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery(query);
             while (res.next()) {
                 per.add(new LavoroPrecedente(res.getInt(1), res.getString(2), res.getDate(3), res.getDate(4), res.getString(5)));
             }
-
             return per;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
