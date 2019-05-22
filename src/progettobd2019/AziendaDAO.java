@@ -33,7 +33,7 @@ public class AziendaDAO implements DAO<Azienda> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "INSERT INTO Azienda (nome, nomeSettore) "
+            String query = "INSERT INTO azienda (nome, nomeSettore) "
                     + "VALUES(?,?)";
             PreparedStatement st = con.prepareStatement(query);
             st.setString(1, az.getNome());
@@ -54,7 +54,7 @@ public class AziendaDAO implements DAO<Azienda> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "UPDATE Azineda SET nome=?, nomeSettore=?,"
+            String query = "UPDATE azineda SET nome=?, nomeSettore=?,"
                     + "WHERE nome=?";
             PreparedStatement st = con.prepareStatement(query);
             st.setString(1, an.getNome());
@@ -77,7 +77,7 @@ public class AziendaDAO implements DAO<Azienda> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "DELETE FROM lavoroPrecedente WHERE nome=?";
+            String query = "DELETE FROM azienda WHERE nome=?";
             PreparedStatement st = con.prepareStatement(query);
             st.setString(1, az.getNome());
             st.executeQuery(query);
@@ -96,7 +96,7 @@ public class AziendaDAO implements DAO<Azienda> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "SELECT (nome,nomeAzienda) FROM  Azienda";
+            String query = "SELECT (nome,nomeAzienda) FROM  azienda";
             PreparedStatement st = con.prepareStatement(query);
             ResultSet res = st.executeQuery(query);
             while (res.next()) {
