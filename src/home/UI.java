@@ -168,7 +168,7 @@ public class UI extends javax.swing.JFrame {
 
         famIco.setBackground(new java.awt.Color(255, 255, 255));
         famIco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        famIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-contacts-32.png"))); // NOI18N
+        famIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-mi-piace-filled-32.png"))); // NOI18N
 
         famSide.setBackground(new java.awt.Color(255, 255, 255));
         famSide.setOpaque(false);
@@ -315,6 +315,9 @@ public class UI extends javax.swing.JFrame {
         addSide.setOpaque(false);
         famSide.setOpaque(false);
         userSide.setOpaque(true);
+        
+        jPanel1.removeAll();
+        jPanel1.repaint();
     }//GEN-LAST:event_userButtonMousePressed
 
     private void famButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_famButtonMousePressed

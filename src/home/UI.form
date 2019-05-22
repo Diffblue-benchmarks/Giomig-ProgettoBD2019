@@ -236,7 +236,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/home/images/icons8-contacts-32.png"/>
+                  <Image iconType="3" name="/home/images/icons8-mi-piace-filled-32.png"/>
                 </Property>
               </Properties>
             </Component>
