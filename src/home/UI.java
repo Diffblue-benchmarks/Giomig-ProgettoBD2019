@@ -42,14 +42,6 @@ public class UI extends javax.swing.JFrame {
         String url = "jdbc:postgresql://" + value[2] + ":" + value[3] + "/" + value[4];
         try {
             conn = DriverManager.getConnection(url, props);
-
-            String query = "SELECT * FROM  settore";
-            Statement st = conn.createStatement();
-            ResultSet res = st.executeQuery(query);
-            while (res.next()) {
-                System.out.println(res.getString(1));
-            }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
