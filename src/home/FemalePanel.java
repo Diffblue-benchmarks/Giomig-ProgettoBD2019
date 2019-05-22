@@ -25,7 +25,7 @@ public class FemalePanel extends javax.swing.JPanel {
         setPreferredSize(size);
         setMaximumSize(size);
         setSize(size);
-        setBackground(new Color(230, 242, 255));
+        setBackground(new Color(221, 204, 255));
         setBorder(new MatteBorder(0, 0, 1, 0, new Color(0, 38, 77)));
         initComponents();
         setVisible(true);
