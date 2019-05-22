@@ -10,6 +10,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.io.File;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+import java.util.Scanner;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -19,13 +26,15 @@ import javax.swing.LayoutStyle;
 import javax.swing.border.MatteBorder;
 
 import progettobd2019.*;
+
 /**
  *
  * @author emidio
  */
 public class UI extends javax.swing.JFrame {
-    public static final String driver="org.postgresql.Driver"; 
-    
+
+    public static final String driver = "org.postgresql.Driver";
+
     /**
      * Creates new form UI
      */
@@ -303,10 +312,10 @@ public class UI extends javax.swing.JFrame {
         //jPanel7.setLayout(new BoxLayout(jPanel7, BoxLayout.Y_AXIS));
         //jPanel1.setLayout(new GridBagLayout());
         jPanel1.add(new MalePanel(false));
-        jPanel1.add(Box.createRigidArea(new Dimension(5,5)));
+        jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
         jPanel1.add(new FemalePanel(true));
-        jPanel1.add(Box.createRigidArea(new Dimension(5,5)));
-        
+        jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
+
         validate();
         repaint();
     }//GEN-LAST:event_addButtonMousePressed
@@ -318,7 +327,7 @@ public class UI extends javax.swing.JFrame {
         addSide.setOpaque(false);
         famSide.setOpaque(false);
         userSide.setOpaque(true);
-        
+
         jPanel1.removeAll();
         jPanel1.repaint();
     }//GEN-LAST:event_userButtonMousePressed
@@ -359,6 +368,18 @@ public class UI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        Connection conn=null;
+        Properties props = new Properties();
+        String[] value=Accesso_utente();
+        props.setProperty("user", value[0]);
+        props.setProperty("password", value[1]);
+        String url = "jdbc:postgresql://"+value[2]+":"+value[3]+"/"+value[4];
+        try{
+        conn=DriverManager.getConnection(url, props);
+        }
+        catch(SQLException e){
+            
+        }
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -366,13 +387,28 @@ public class UI extends javax.swing.JFrame {
             }
         });
     }
+    
+    static public String[] Accesso_utente() {
+        try {
+            Scanner s = new Scanner(new File("login.conf"));
+            String[] x=new String[5];
+            x[0] = s.nextLine().substring(10);
+            x[1] = s.nextLine().substring(10);
+            x[2] = s.nextLine().substring(10);
+            x[3] = s.nextLine().substring(6);
+            x[4] = s.nextLine().substring(10);
+            return x;
+        } catch (IOException e) {
+            return null;
+        }
+    }
 
     private void setColor(JPanel panel) {
-        panel.setBackground(new Color(0,51,128));
+        panel.setBackground(new Color(0, 51, 128));
     }
 
     private void resetColor(JPanel panel) {
-        panel.setBackground(new Color(77,77,255));
+        panel.setBackground(new Color(77, 77, 255));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
