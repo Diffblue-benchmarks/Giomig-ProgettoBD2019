@@ -246,7 +246,7 @@ public class UI extends javax.swing.JFrame {
         //jPanel7.setLayout(new BoxLayout(jPanel7, BoxLayout.Y_AXIS));
         //jPanel1.setLayout(new GridBagLayout());
         
-        jPanel1.add( new NewJPanel());
+        jPanel1.add( new MalePanel());
         
         validate();
         repaint();

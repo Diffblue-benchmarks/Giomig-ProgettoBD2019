@@ -43,8 +43,8 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="userButton" alignment="0" pref="60" max="32767" attributes="0"/>
-              <Component id="addButton" alignment="1" pref="60" max="32767" attributes="0"/>
+              <Component id="userButton" alignment="0" max="32767" attributes="0"/>
+              <Component id="addButton" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
