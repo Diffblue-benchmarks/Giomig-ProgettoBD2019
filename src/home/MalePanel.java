@@ -52,10 +52,10 @@ public class MalePanel extends javax.swing.JPanel {
         maleIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/male.png"))); // NOI18N
 
         Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Title.setText("Avv.");
+        Title.setText("Ing.");
 
         Cognome.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Cognome.setText("Salvati");
+        Cognome.setText("Mignone");
 
         name.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         name.setText("Giovanni");
