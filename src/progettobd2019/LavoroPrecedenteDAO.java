@@ -24,8 +24,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
     String url = "jdbc:postgresql://hostname//database";
     ArrayList<LavoroPrecedente> per = new ArrayList<>();
 
-
-     @Override
+    @Override
     public void insert(LavoroPrecedente lp) {
         try {
             Class.forName("org.postgresql.Driver");
@@ -48,7 +47,6 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
             System.out.println(e.getMessage());
         }
     }
-
 
     @Override
     public void update(LavoroPrecedente lp) {
@@ -92,7 +90,6 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
             System.out.println(e.getMessage());
         }
     }
-
 
     @Override
     public List<LavoroPrecedente> getAll() {
