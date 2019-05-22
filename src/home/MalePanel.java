@@ -9,24 +9,29 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.border.MatteBorder;
 
+import progettobd2019.Persona;
 /**
  *
  * @author emidio
  */
 public class MalePanel extends javax.swing.JPanel {
 
+    
     /**
      * Creates new form NewJPanel
      */
-    public MalePanel() {
+    public MalePanel(boolean fam) {
         Dimension size = new Dimension(470, 73);
         setPreferredSize(size);
         setMaximumSize(size);
         setSize(size);
-        setBackground(Color.yellow);
-        setBorder(new MatteBorder(0, 0, 1, 0, Color.GREEN));
-        setVisible(true);
+        setBackground(new Color(230, 242, 255));
+        setBorder(new MatteBorder(0, 0, 1, 0, new Color(0, 38, 77)));
         initComponents();
+        setVisible(true);
+        if(fam)
+            familiare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-mi-piace-filled-32.png")));
+        
     }
 
     /**
@@ -38,27 +43,26 @@ public class MalePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        maleIcon = new javax.swing.JLabel();
+        Title = new javax.swing.JLabel();
+        Cognome = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
+        familiare = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(470, 73));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/male.png"))); // NOI18N
+        maleIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/male.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("Avv.");
+        Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Title.setText("Avv.");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel4.setText("Salvati");
+        Cognome.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Cognome.setText("Salvati");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel5.setText("Giovanni");
+        name.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        name.setText("Giovanni");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-mi-piace-filled-32.png"))); // NOI18N
+        familiare.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -66,15 +70,15 @@ public class MalePanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(maleIcon)
                 .addGap(43, 43, 43)
-                .addComponent(jLabel2)
+                .addComponent(Title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addComponent(name)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jLabel7)
+                .addComponent(Cognome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(familiare)
                 .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
@@ -83,24 +87,24 @@ public class MalePanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1))
+                        .addComponent(maleIcon))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
+                            .addComponent(familiare)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5)))))
+                                .addComponent(Title)
+                                .addComponent(Cognome)
+                                .addComponent(name)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel Cognome;
+    private javax.swing.JLabel Title;
+    private javax.swing.JLabel familiare;
+    private javax.swing.JLabel maleIcon;
+    private javax.swing.JLabel name;
     // End of variables declaration//GEN-END:variables
 }
