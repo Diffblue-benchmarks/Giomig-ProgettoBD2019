@@ -14,6 +14,7 @@ import java.util.Properties;
 import java.util.Scanner;
 import javax.swing.Box;
 import javax.swing.JPanel;
+import progettobd2019.Azienda;
 
 /**
  *
@@ -29,7 +30,7 @@ public class UI extends javax.swing.JFrame {
      */
     public UI() {
         try {
-            Class.forName(UI.driver);
+            Class.forName(driver);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
@@ -40,6 +41,14 @@ public class UI extends javax.swing.JFrame {
         String url = "jdbc:postgresql://" + value[2] + ":" + value[3] + "/" + value[4];
         try {
             conn = DriverManager.getConnection(url, props);
+            String query = "SELECT * FROM  settore";
+            Statement st=conn.createStatement();
+            //PreparedStatement st= conn.prepareStatement(query);
+            ResultSet res = st.executeQuery(query);
+            while (res.next()) {
+                System.out.println(res.getString(1));
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
