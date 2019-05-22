@@ -33,7 +33,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "INSERT INTO Presentazione (idPresentato, idPresentatore, idEvento) "
+            String query = "INSERT INTO presentazione (idPresentato, idPresentatore, idEvento) "
                     + "VALUES(?,?,?,?,?)";
             PreparedStatement st = con.prepareStatement(query);
             st.setInt(1, pre.getIdPresentato());
@@ -55,7 +55,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "UPDATE Presentazione SET idPresentato=?, idPresentatore=?, idEvento=? "
+            String query = "UPDATE presentazione SET idPresentato=?, idPresentatore=?, idEvento=? "
                     + "WHERE idPresentato=? AND idPresentatore=? AND idEvento=? ";
             PreparedStatement st = con.prepareStatement(query);
             st.setInt(1, pre.getIdPresentato());
@@ -78,7 +78,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "DELETE FROM lavoroPrecedente WHERE idPresentato=? AND idPresentatore=? AND idEvento=?";
+            String query = "DELETE FROM presentazione WHERE idPresentato=? AND idPresentatore=? AND idEvento=?";
             PreparedStatement st = con.prepareStatement(query);
             st.setInt(1, pre.getIdPresentato());
             st.setInt(2, pre.getIdPresentatore());
@@ -99,7 +99,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         }
         try {
             con = DriverManager.getConnection(url, user, psw);
-            String query = "SELECT (idPresentato,idPresentatore,idEvento) FROM  Presentazione";
+            String query = "SELECT (idPresentato,idPresentatore,idEvento) FROM  presentazione";
             PreparedStatement st = con.prepareStatement(query);
             ResultSet res = st.executeQuery(query);
             while (res.next()) {
@@ -113,6 +113,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
         }
     }
 
+    @Override
     public void updateKey(Presentazione pv, Presentazione pn) {
     }
 }
