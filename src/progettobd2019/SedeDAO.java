@@ -16,7 +16,7 @@ public class SedeDAO implements DAO<Sede> {
     @Override
     public void insert(Sede s) throws SQLException {
         try {
-            String query = "INSERT INTO sede (capCitta, nomeAzienda, indirizzo)"
+            String query = "INSERT INTO (sede capCitta, nomeAzienda, indirizzo)"
                     + " VALUES(?,?,?)";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, s.getCapCitta());
