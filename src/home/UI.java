@@ -39,6 +39,12 @@ public class UI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        topPanel = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        searchBox = new javax.swing.JTextField();
+        searchIco = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         rightSidePanel = new javax.swing.JPanel();
         userButton = new javax.swing.JPanel();
         userIco = new javax.swing.JLabel();
@@ -49,10 +55,6 @@ public class UI extends javax.swing.JFrame {
         famButton = new javax.swing.JPanel();
         famIco = new javax.swing.JLabel();
         famSide = new javax.swing.JPanel();
-        topPanel = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
-        searchBox = new javax.swing.JTextField();
-        searchIco = new javax.swing.JLabel();
         infoPanel = new javax.swing.JPanel();
         toolPanel = new javax.swing.JPanel();
         editLabel = new javax.swing.JLabel();
@@ -61,11 +63,40 @@ public class UI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
 
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Contacts");
         setName("Contacts"); // NOI18N
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        topPanel.setBackground(new java.awt.Color(77, 77, 255));
+        topPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        topPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 218, 10));
+
+        searchBox.setBackground(new java.awt.Color(77, 77, 255));
+        searchBox.setForeground(new java.awt.Color(255, 255, 255));
+        searchBox.setToolTipText("");
+        searchBox.setBorder(null);
+        topPanel.add(searchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 186, 27));
+
+        searchIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-search-20.png"))); // NOI18N
+        topPanel.add(searchIco, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 10, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/banner.png"))); // NOI18N
+        topPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
+        getContentPane().add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, -1));
 
         rightSidePanel.setBackground(new java.awt.Color(77, 77, 255));
 
@@ -222,21 +253,6 @@ public class UI extends javax.swing.JFrame {
 
         getContentPane().add(rightSidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 60, 450));
 
-        topPanel.setBackground(new java.awt.Color(77, 77, 255));
-        topPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        topPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 218, 10));
-
-        searchBox.setBackground(new java.awt.Color(77, 77, 255));
-        searchBox.setForeground(new java.awt.Color(255, 255, 255));
-        searchBox.setToolTipText("");
-        searchBox.setBorder(null);
-        topPanel.add(searchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 186, 27));
-
-        searchIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/images/icons8-search-20.png"))); // NOI18N
-        topPanel.add(searchIco, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 10, -1, -1));
-
-        getContentPane().add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, -1));
-
         infoPanel.setBackground(new java.awt.Color(255, 255, 255));
         infoPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 0, 0, new java.awt.Color(0, 0, 0)));
 
@@ -254,12 +270,15 @@ public class UI extends javax.swing.JFrame {
         infoPanel.setLayout(infoPanelLayout);
         infoPanelLayout.setHorizontalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(toolPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+            .addGroup(infoPanelLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(toolPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
-                .addContainerGap(415, Short.MAX_VALUE)
+            .addGroup(infoPanelLayout.createSequentialGroup()
+                .addGap(415, 415, 415)
                 .addComponent(toolPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -413,6 +432,8 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JLabel famIco;
     private javax.swing.JPanel famSide;
     private javax.swing.JPanel infoPanel;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
