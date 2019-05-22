@@ -15,33 +15,19 @@ import java.util.*;
  */
 public class PresentazioneDAO implements DAO<Presentazione> {
 
-    Connection con = null;
-    Statement st = null;
-    Accesso a = new Accesso();
-    String user = a.username;
-    String psw = a.psw;
-    String hostname = a.hostname;
-    String database = a.database;
-    String url = "jdbc:postgresql://hostname//database";
     ArrayList<Presentazione> presentatori = new ArrayList<>();
 
     @Override
     public void insert(Presentazione pre) throws SQLException {
         try {
-            Class.forName(UI.driver);
-        } catch (ClassNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        }
-        try {
-            con = DriverManager.getConnection(url, user, psw);
             String query = "INSERT INTO presentazione (idPresentato, idPresentatore, idEvento) "
                     + "VALUES(?,?,?,?,?)";
-            PreparedStatement st = con.prepareStatement(query);
+            PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, pre.getIdPresentato());
             st.setInt(2, pre.getIdPresentatore());
             st.setInt(3, pre.getIdEvento());
             st.executeQuery(query);
-            con.close();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -50,15 +36,9 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     @Override
     public void updateKey(Presentazione pv, Presentazione pn) {
         try {
-            Class.forName(UI.driver);
-        } catch (ClassNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        }
-        try {
-            con = DriverManager.getConnection(url, user, psw);
             String query = "UPDATE presentazione SET idPresentato=?, idPresentatore=?, idEvento=? "
                     + "WHERE idPresentato=? AND idPresentatore=? AND idEvento=? ";
-            PreparedStatement st = con.prepareStatement(query);
+            PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, pn.getIdPresentato());
             st.setInt(2, pn.getIdPresentatore());
             st.setInt(3, pn.getIdEvento());
@@ -66,7 +46,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
             st.setInt(5, pv.getIdPresentatore());
             st.setInt(6, pv.getIdEvento());
             st.executeQuery(query);
-            con.close();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -76,19 +56,13 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     public void delete(Presentazione pre) {
 
         try {
-            Class.forName(UI.driver);
-        } catch (ClassNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        }
-        try {
-            con = DriverManager.getConnection(url, user, psw);
             String query = "DELETE FROM presentazione WHERE idPresentato=? AND idPresentatore=? AND idEvento=?";
-            PreparedStatement st = con.prepareStatement(query);
+            PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, pre.getIdPresentato());
             st.setInt(2, pre.getIdPresentatore());
             st.setInt(3, pre.getIdEvento());
             st.executeQuery(query);
-            con.close();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -97,19 +71,13 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     @Override
     public List<Presentazione> getAll() {
         try {
-            Class.forName(UI.driver);
-        } catch (ClassNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        }
-        try {
-            con = DriverManager.getConnection(url, user, psw);
             String query = "SELECT (idPresentato,idPresentatore,idEvento) FROM  presentazione";
-            PreparedStatement st = con.prepareStatement(query);
+            PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery(query);
             while (res.next()) {
                 presentatori.add(new Presentazione(res.getInt(1), res.getInt(2), res.getInt(3)));
             }
-            con.close();
+
             return presentatori;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
