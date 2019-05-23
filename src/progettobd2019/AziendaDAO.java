@@ -61,7 +61,7 @@ public class AziendaDAO implements DAO<Azienda> {
     @Override
     public List<Azienda> getAll() {
         try {
-            String query = "SELECT (nome,nomeAzienda) FROM  azienda";
+            String query = "SELECT nome,nomeAzienda FROM azienda";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
             while (res.next()) {

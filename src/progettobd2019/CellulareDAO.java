@@ -47,7 +47,7 @@ public class CellulareDAO implements DAO<Cellulare> {
     @Override
     public void delete(Cellulare c) {
         try {
-            String query = "DELETE FROM cellulare WHERE idPersona=? ";
+            String query = "DELETE FROM cellulare WHERE idPersona=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, c.getIdPersona());
             st.executeQuery();
@@ -59,7 +59,7 @@ public class CellulareDAO implements DAO<Cellulare> {
     @Override
     public List<Cellulare> getAll() {
         try {
-            String query = "SELECT (numero, idPersona) FROM cellulare";
+            String query = "SELECT numero, idPersona FROM cellulare";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
             while (res.next()) {

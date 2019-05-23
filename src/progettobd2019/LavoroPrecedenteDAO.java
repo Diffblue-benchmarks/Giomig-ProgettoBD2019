@@ -15,12 +15,12 @@ import java.util.*;
  */
 public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
 
-    ArrayList<LavoroPrecedente> per = new ArrayList<>();
+    ArrayList<LavoroPrecedente> lpre = new ArrayList<>();
 
     @Override
     public void insert(LavoroPrecedente lp) {
         try {
-            String query = "INSERT INTO lavoroPrecedente (idPersona, nomeAzienda, dataInizio, dataFine, ruolo) "
+            String query = "INSERT INTO lavoroPrecedente (idPersona, nomeAzienda, dataInizio, dataFine, ruolo)"
                     + "VALUES(?,?,?,?,?)";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, lp.getIdPersona());
@@ -38,7 +38,7 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
     @Override
     public void update(LavoroPrecedente lp) {
         try {
-            String query = "UPDATE lavoroPrecedente SET nomeAzienda=?, dataInizio=?, dataFine=?, ruolo=? "
+            String query = "UPDATE lavoroPrecedente SET nomeAzienda=?, dataInizio=?, dataFine=?, ruolo=?"
                     + "WHERE id=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, lp.getNomeAzienda());
@@ -70,13 +70,13 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
     @Override
     public List<LavoroPrecedente> getAll() {
         try {
-            String query = "SELECT (idPersona,nomeAzienda,dataInizio,dataFine,ruolo) FROM lavoroPrecedente";
+            String query = "SELECT idPersona,nomeAzienda,dataInizio,dataFine,ruolo FROM lavoroPrecedente";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
             while (res.next()) {
-                per.add(new LavoroPrecedente(res.getInt(1), res.getString(2), res.getDate(3), res.getDate(4), res.getString(5)));
+                lpre.add(new LavoroPrecedente(res.getInt(1), res.getString(2), res.getDate(3), res.getDate(4), res.getString(5)));
             }
-            return per;
+            return lpre;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;

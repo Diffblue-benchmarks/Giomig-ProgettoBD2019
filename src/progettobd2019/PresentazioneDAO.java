@@ -15,13 +15,13 @@ import java.util.*;
  */
 public class PresentazioneDAO implements DAO<Presentazione> {
 
-    ArrayList<Presentazione> presentatori = new ArrayList<>();
+    ArrayList<Presentazione> pre = new ArrayList<>();
 
     @Override
     public void insert(Presentazione pre) throws SQLException {
         try {
             String query = "INSERT INTO presentazione (idPresentato, idPresentatore, idEvento) "
-                    + "VALUES(?,?,?,?,?)";
+                    + "VALUES(?,?,?)";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, pre.getIdPresentato());
             st.setInt(2, pre.getIdPresentatore());
@@ -36,7 +36,7 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     @Override
     public void updateKey(Presentazione pv, Presentazione pn) {
         try {
-            String query = "UPDATE presentazione SET idPresentato=?, idPresentatore=?, idEvento=? "
+            String query = "UPDATE presentazione SET idPresentato=?, idPresentatore=?, idEvento=?"
                     + "WHERE idPresentato=? AND idPresentatore=? AND idEvento=? ";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, pn.getIdPresentato());
@@ -71,14 +71,14 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     @Override
     public List<Presentazione> getAll() {
         try {
-            String query = "SELECT (idPresentato,idPresentatore,idEvento) FROM  presentazione";
+            String query = "SELECT idPresentato,idPresentatore,idEvento FROM presentazione";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
             while (res.next()) {
-                presentatori.add(new Presentazione(res.getInt(1), res.getInt(2), res.getInt(3)));
+                pre.add(new Presentazione(res.getInt(1), res.getInt(2), res.getInt(3)));
             }
 
-            return presentatori;
+            return pre;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;

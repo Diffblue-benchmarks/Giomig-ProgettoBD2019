@@ -20,7 +20,7 @@ public class PersonaDAO implements DAO<Persona> {
     @Override
     public void insert(Persona p) throws SQLException {
         try {
-            String query = "INSERT INTO persona (nomeAzienda, nome, cognome, sesso, titolo, foto, familiare, "
+            String query = "INSERT INTO persona (nomeAzienda, nome, cognome, sesso, titolo, foto, familiare,"
                     + " sitoWeb, telefono, ruolo,dataInizio) VALUES(?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, p.getNomeAzienda());
@@ -43,8 +43,8 @@ public class PersonaDAO implements DAO<Persona> {
     @Override
     public void update(Persona p) {
         try {
-            String query = "UPDATE persona SET nomeAzienda=?, nome=?, cognome=?, sesso=?, titolo=?, foto=?, familiare=?, "
-                    + " sitoWeb=?, telefono=?, ruolo=?,dataInizio=? WHERE id=?";
+            String query = "UPDATE persona SET nomeAzienda=?, nome=?, cognome=?, sesso=?, titolo=?, foto=?, familiare=?,"
+                    + "sitoWeb=?, telefono=?, ruolo=?, dataInizio=? WHERE id=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, p.getNomeAzienda());
             st.setString(2, p.getNome());

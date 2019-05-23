@@ -16,7 +16,7 @@ public class SedeDAO implements DAO<Sede> {
     @Override
     public void insert(Sede s) throws SQLException {
         try {
-            String query = "INSERT INTO (sede capCitta, nomeAzienda, indirizzo)"
+            String query = "INSERT INTO sede (capCitta, nomeAzienda, indirizzo)"
                     + " VALUES(?,?,?)";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, s.getCapCitta());
@@ -31,7 +31,7 @@ public class SedeDAO implements DAO<Sede> {
     @Override
     public void updateKey(Sede sv, Sede sn) {
         try {
-            String query = "UPDATE sede SET capCitta=?, nomeAzienda=?, indirizzo=? "
+            String query = "UPDATE sede SET capCitta=?, nomeAzienda=?, indirizzo=?"
                     + "WHERE capCitta=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, sn.getCapCitta());
@@ -47,7 +47,7 @@ public class SedeDAO implements DAO<Sede> {
     @Override
     public void delete(Sede s) {
         try {
-            String query = "DELETE FROM sede WHERE capCitta=? ";
+            String query = "DELETE FROM sede WHERE capCitta=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, s.getCapCitta());
             st.executeQuery();
@@ -59,7 +59,7 @@ public class SedeDAO implements DAO<Sede> {
     @Override
     public List<Sede> getAll() {
         try {
-            String query = "SELECT (capCitta, nomeAzienda, indirizzo)"
+            String query = "SELECT capCitta, nomeAzienda, indirizzo"
                     + "FROM sede";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();

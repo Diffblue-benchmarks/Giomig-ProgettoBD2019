@@ -48,7 +48,7 @@ public class EmailDAO implements DAO<Email> {
     @Override
     public void delete(Email em) {
         try {
-            String query = "DELETE FROM email WHERE idPersona=? ";
+            String query = "DELETE FROM email WHERE idPersona=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, em.getIdPersona());
             st.executeQuery();
@@ -61,7 +61,7 @@ public class EmailDAO implements DAO<Email> {
     @Override
     public List<Email> getAll() {
         try {
-            String query = "SELECT (indirizzoEmail, idPersona) FROM email";
+            String query = "SELECT indirizzoEmail, idPersona FROM email";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
             while (res.next()) {

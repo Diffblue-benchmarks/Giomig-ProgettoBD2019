@@ -37,7 +37,7 @@ public class EventoDAO implements DAO<Evento> {
     @Override
     public void update(Evento eve) {
         try {
-            String query = "UPDATE evento SET capCitta=?, tipo=?, data=?, descrizione=? "
+            String query = "UPDATE evento SET capCitta=?, tipo=?, data=?, descrizione=?"
                     + "WHERE id=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, eve.getCapCitta());
@@ -54,7 +54,7 @@ public class EventoDAO implements DAO<Evento> {
     @Override
     public void delete(Evento eve) {
         try {
-            String query = "DELETE FROM evento WHERE id=? ";
+            String query = "DELETE FROM evento WHERE id=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, eve.getId());
             st.executeQuery();
@@ -66,7 +66,7 @@ public class EventoDAO implements DAO<Evento> {
     @Override
     public List<Evento> getAll() {
         try {
-            String query = "SELECT (id, capCitta, tipo, data, descrizione)"
+            String query = "SELECT id, capCitta, tipo, data, descrizione"
                     + "FROM evento";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
