@@ -83,6 +83,7 @@ public class PersonaDAO implements DAO<Persona> {
                     + " sitoWeb, telefono, ruolo,dataInizio FROM persona as p ORDER BY p.nome";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
+            per.clear();
             while (res.next()) {
                 per.add(new Persona(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getBoolean(8), res.getString(9), res.getString(10), res.getString(11), res.getDate(12)));
             }
@@ -92,7 +93,27 @@ public class PersonaDAO implements DAO<Persona> {
             return null;
         }
     }
-
+    
+    public List<Persona> getFamily(){
+        try {
+            String query = "SELECT id,nomeAzienda, nome, cognome, sesso, titolo, foto, familiare,"
+                    + "sitoWeb, telefono, ruolo,dataInizio"
+                    + "FROM persona as p" 
+                    + "WHERE p.familiare=true"
+                    + "ORDER BY p.nome";
+            PreparedStatement st = UI.conn.prepareStatement(query);
+            ResultSet res = st.executeQuery();
+            per.clear();
+            while (res.next()) {
+                per.add(new Persona(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getBoolean(8), res.getString(9), res.getString(10), res.getString(11), res.getDate(12)));
+            }
+            return per;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+    
     @Override
     public void updateKey(Persona pv, Persona pn) {
     }
