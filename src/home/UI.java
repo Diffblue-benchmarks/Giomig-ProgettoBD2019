@@ -47,6 +47,7 @@ public class UI extends javax.swing.JFrame {
         }
         initComponents();
         aggiornaUtenti(false);
+        
     }
 
     /**
@@ -458,9 +459,6 @@ public class UI extends javax.swing.JFrame {
                 jPanel1.add(mp);
                 mp.validate();
                 jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
-                infoScrollPanel.add(new newUserPanel());
-                infoScrollPanel.validate();
-                infoScrollPanel.repaint();
                 jPanel1.repaint();
                 validate();
                 repaint();
@@ -472,9 +470,6 @@ public class UI extends javax.swing.JFrame {
                 jPanel1.add(fp);
                 fp.validate();
                 jPanel1.add(Box.createRigidArea(new Dimension(5, 5)));
-                infoScrollPanel.add(new newUserPanel());
-                infoScrollPanel.validate();
-                infoScrollPanel.repaint();
                 jPanel1.repaint();
                 validate();
                 repaint();

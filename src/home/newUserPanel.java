@@ -47,7 +47,7 @@ public class newUserPanel extends javax.swing.JPanel {
         jRadioButton3 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 0, 204));
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(510, 418));
 
         name.setText("Nome");
