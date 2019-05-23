@@ -474,9 +474,13 @@ public class UI extends javax.swing.JFrame {
             }
     }
     
-    private void aggiornaUtenti(){
+    private void pulisciPanel(){
         jPanel1.removeAll();
         jPanel1.repaint();
+    }
+    
+    private void aggiornaUtenti(){
+        pulisciPanel();
         PersonaDAO pDAO = new PersonaDAO();
         List<Persona> list = pDAO.getAll();
         for (Persona persona : list) {
@@ -485,8 +489,7 @@ public class UI extends javax.swing.JFrame {
     }
     
     private void aggiornaFamiliari(){
-        jPanel1.removeAll();
-        jPanel1.repaint();
+        pulisciPanel();
         PersonaDAO pDAO = new PersonaDAO();
         List<Persona> list = pDAO.getFamily();
         for (Persona persona : list) {
