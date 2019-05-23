@@ -10,9 +10,7 @@ import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
-import java.util.List;
-import java.util.Properties;
-import java.util.Scanner;
+import java.util.*;
 import javax.swing.Box;
 import javax.swing.JPanel;
 import progettobd2019.*;
@@ -46,7 +44,7 @@ public class UI extends javax.swing.JFrame {
             e.printStackTrace();
         }
         initComponents();
-        aggiornaUtenti(false);
+        aggiornaUtenti();
         
     }
 
@@ -378,7 +376,7 @@ public class UI extends javax.swing.JFrame {
         addSide.setOpaque(false);
         famSide.setOpaque(false);
         userSide.setOpaque(true);
-        aggiornaUtenti(false);
+        aggiornaUtenti();
     }//GEN-LAST:event_userButtonMousePressed
 
     private void famButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_famButtonMousePressed
@@ -388,7 +386,7 @@ public class UI extends javax.swing.JFrame {
         addSide.setOpaque(false);
         userSide.setOpaque(false);
         famSide.setOpaque(true);
-        aggiornaUtenti(true);
+        aggiornaFamiliari();
     }//GEN-LAST:event_famButtonMousePressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -476,15 +474,23 @@ public class UI extends javax.swing.JFrame {
             }
     }
     
-    private void aggiornaUtenti(boolean fam){
+    private void aggiornaUtenti(){
         jPanel1.removeAll();
         jPanel1.repaint();
         PersonaDAO pDAO = new PersonaDAO();
         List<Persona> list = pDAO.getAll();
         for (Persona persona : list) {
-            if (fam && persona.getFamiliare() || !fam){
                 printPersona(persona);
-            }
+        }
+    }
+    
+    private void aggiornaFamiliari(){
+        jPanel1.removeAll();
+        jPanel1.repaint();
+        PersonaDAO pDAO = new PersonaDAO();
+        List<Persona> list = pDAO.getFamily();
+        for (Persona persona : list) {
+                printPersona(persona);
         }
     }
 
