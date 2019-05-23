@@ -80,7 +80,7 @@ public class PersonaDAO implements DAO<Persona> {
     public List<Persona> getAll() {
         try {
             String query = "SELECT id,nomeAzienda, nome, cognome, sesso, titolo, foto, familiare, "
-                    + " sitoWeb, telefono, ruolo,dataInizio FROM persona";
+                    + " sitoWeb, telefono, ruolo,dataInizio FROM persona as p ORDER BY p.nome";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
             while (res.next()) {
