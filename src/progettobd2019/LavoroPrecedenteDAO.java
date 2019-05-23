@@ -20,7 +20,8 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
     @Override
     public void insert(LavoroPrecedente lp) {
         try {
-            String query = "INSERT INTO lavoroPrecedente (idPersona, nomeAzienda, dataInizio, dataFine, ruolo)"
+            String query = "INSERT INTO lavoroPrecedente (idPersona, nomeAzienda, "
+                    + "dataInizio, dataFine, ruolo) "
                     + "VALUES(?,?,?,?,?)";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, lp.getIdPersona());
@@ -38,7 +39,8 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
     @Override
     public void update(LavoroPrecedente lp) {
         try {
-            String query = "UPDATE lavoroPrecedente SET nomeAzienda=?, dataInizio=?, dataFine=?, ruolo=?"
+            String query = "UPDATE lavoroPrecedente "
+                    + "SET nomeAzienda=?, dataInizio=?, dataFine=?, ruolo=? "
                     + "WHERE id=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, lp.getNomeAzienda());
@@ -57,7 +59,9 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
     public void delete(LavoroPrecedente lp) {
         try {
 
-            String query = "DELETE FROM lavoroPrecedente WHERE id=? ";
+            String query = "DELETE "
+                    + "FROM lavoroPrecedente "
+                    + "WHERE id=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, lp.getIdPersona());
             st.executeQuery();
@@ -70,7 +74,8 @@ public class LavoroPrecedenteDAO implements DAO<LavoroPrecedente> {
     @Override
     public List<LavoroPrecedente> getAll() {
         try {
-            String query = "SELECT idPersona,nomeAzienda,dataInizio,dataFine,ruolo FROM lavoroPrecedente";
+            String query = "SELECT idPersona,nomeAzienda,dataInizio,dataFine,ruolo "
+                    + "FROM lavoroPrecedente";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
             while (res.next()) {

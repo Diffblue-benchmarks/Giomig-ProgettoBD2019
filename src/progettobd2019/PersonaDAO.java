@@ -20,8 +20,9 @@ public class PersonaDAO implements DAO<Persona> {
     @Override
     public void insert(Persona p) throws SQLException {
         try {
-            String query = "INSERT INTO persona (nomeAzienda, nome, cognome, sesso, titolo, foto, familiare,"
-                    + " sitoWeb, telefono, ruolo,dataInizio) VALUES(?,?,?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO persona (nomeAzienda, nome, cognome, sesso,"
+                    + "titolo, foto, familiare, sitoWeb, telefono, ruolo,dataInizio) "
+                    + "VALUES(?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, p.getNomeAzienda());
             st.setString(2, p.getNome());
@@ -43,8 +44,10 @@ public class PersonaDAO implements DAO<Persona> {
     @Override
     public void update(Persona p) {
         try {
-            String query = "UPDATE persona SET nomeAzienda=?, nome=?, cognome=?, sesso=?, titolo=?, foto=?, familiare=?,"
-                    + "sitoWeb=?, telefono=?, ruolo=?, dataInizio=? WHERE id=?";
+            String query = "UPDATE persona "
+                    + "SET nomeAzienda=?, nome=?, cognome=?, sesso=?, titolo=?, foto=?, familiare=?,"
+                    + "sitoWeb=?, telefono=?, ruolo=?, dataInizio=? "
+                    + "WHERE id=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, p.getNomeAzienda());
             st.setString(2, p.getNome());
@@ -67,7 +70,9 @@ public class PersonaDAO implements DAO<Persona> {
     @Override
     public void delete(Persona p) {
         try {
-            String query = "DELETE FROM persona WHERE id=? ";
+            String query = "DELETE "
+                    + "FROM persona "
+                    + "WHERE id=? ";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, p.getId());
             st.executeQuery();
@@ -80,7 +85,9 @@ public class PersonaDAO implements DAO<Persona> {
     public List<Persona> getAll() {
         try {
             String query = "SELECT id,nomeAzienda, nome, cognome, sesso, titolo, foto, familiare, "
-                    + " sitoWeb, telefono, ruolo,dataInizio FROM persona as p ORDER BY p.nome";
+                    + " sitoWeb, telefono, ruolo,dataInizio"
+                    + "FROM persona as p "
+                    + "ORDER BY p.nome";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
             per.clear();
@@ -97,9 +104,9 @@ public class PersonaDAO implements DAO<Persona> {
     public List<Persona> getFamily(){
         try {
             String query = "SELECT id,nomeAzienda, nome, cognome, sesso, titolo, foto, familiare,"
-                    + "sitoWeb, telefono, ruolo,dataInizio"
-                    + "FROM persona as p" 
-                    + "WHERE p.familiare=true"
+                    + "sitoWeb, telefono, ruolo,dataInizio "
+                    + "FROM persona as p " 
+                    + "WHERE p.familiare=true "
                     + "ORDER BY p.nome";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();

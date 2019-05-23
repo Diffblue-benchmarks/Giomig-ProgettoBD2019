@@ -36,8 +36,9 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     @Override
     public void updateKey(Presentazione pv, Presentazione pn) {
         try {
-            String query = "UPDATE presentazione SET idPresentato=?, idPresentatore=?, idEvento=?"
-                    + "WHERE idPresentato=? AND idPresentatore=? AND idEvento=? ";
+            String query = "UPDATE presentazione "
+                    + "SET idPresentato=?, idPresentatore=?, idEvento=? "
+                    + "WHERE idPresentato=? AND idPresentatore=? AND idEvento=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, pn.getIdPresentato());
             st.setInt(2, pn.getIdPresentatore());
@@ -56,7 +57,9 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     public void delete(Presentazione pre) {
 
         try {
-            String query = "DELETE FROM presentazione WHERE idPresentato=? AND idPresentatore=? AND idEvento=?";
+            String query = "DELETE "
+                    + "FROM presentazione "
+                    + "WHERE idPresentato=? AND idPresentatore=? AND idEvento=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setInt(1, pre.getIdPresentato());
             st.setInt(2, pre.getIdPresentatore());
@@ -71,7 +74,8 @@ public class PresentazioneDAO implements DAO<Presentazione> {
     @Override
     public List<Presentazione> getAll() {
         try {
-            String query = "SELECT idPresentato,idPresentatore,idEvento FROM presentazione";
+            String query = "SELECT idPresentato,idPresentatore,idEvento "
+                    + "FROM presentazione";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
             while (res.next()) {

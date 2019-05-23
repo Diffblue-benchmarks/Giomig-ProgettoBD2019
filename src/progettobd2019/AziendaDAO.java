@@ -34,7 +34,8 @@ public class AziendaDAO implements DAO<Azienda> {
     @Override
     public void updateKey(Azienda av, Azienda an) {
         try {
-            String query = "UPDATE azineda SET nome=?, nomeSettore=?,"
+            String query = "UPDATE azineda "
+                    + "SET nome=?, nomeSettore=? "
                     + "WHERE nome=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, an.getNome());
@@ -49,7 +50,9 @@ public class AziendaDAO implements DAO<Azienda> {
     @Override
     public void delete(Azienda az) {
         try {
-            String query = "DELETE FROM azienda WHERE nome=?";
+            String query = "DELETE "
+                    + "FROM azienda "
+                    + "WHERE nome=?";
             PreparedStatement st = UI.conn.prepareStatement(query);
             st.setString(1, az.getNome());
             st.executeQuery();
@@ -61,7 +64,8 @@ public class AziendaDAO implements DAO<Azienda> {
     @Override
     public List<Azienda> getAll() {
         try {
-            String query = "SELECT nome,nomeAzienda FROM azienda";
+            String query = "SELECT nome,nomeAzienda "
+                    + "FROM azienda";
             PreparedStatement st = UI.conn.prepareStatement(query);
             ResultSet res = st.executeQuery();
             while (res.next()) {
